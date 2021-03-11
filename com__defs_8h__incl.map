@@ -1,0 +1,13 @@
+<map id="com_defs.h" name="com_defs.h">
+<area shape="rect" id="node1" title="CANopen Master definitions." alt="" coords="121,5,212,32"/>
+<area shape="rect" id="node2" href="$cp__core_8h.html" title="CANpie core functions." alt="" coords="13,80,93,107"/>
+<area shape="rect" id="node9" href="$cp__msg_8h.html" title="CANpie message access" alt="" coords="101,155,181,181"/>
+<area shape="rect" id="node10" href="$canopen_8h.html" title="General CANopen definitions." alt="" coords="206,155,290,181"/>
+<area shape="rect" id="node11" href="$com__conf_8h.html" title="CANopen Master stack configuration." alt="" coords="229,80,320,107"/>
+<area shape="rect" id="node3" href="$cp__fifo_8h.html" title="CANpie FIFO functions." alt="" coords="5,155,77,181"/>
+<area shape="rect" id="node4" href="$canpie_8h.html" title="CANpie constants, structures and enumerations" alt="" coords="93,229,165,256"/>
+<area shape="rect" id="node5" href="$mc__compiler_8h.html" title="Definition of compiler independent data types." alt="" coords="193,304,303,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="66,304,169,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="162,379,238,405"/>
+<area shape="rect" id="node7" title=" " alt="" coords="262,379,327,405"/>
+</map>
