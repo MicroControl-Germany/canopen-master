@@ -74,8 +74,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga4dd3a7980b7598eedc31cc96834701de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__CP__NRL.html#ga4dd3a7980b7598eedc31cc96834701de">CP_NRL_CHANNEL_MAX</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga4dd3a7980b7598eedc31cc96834701de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa7a2410ad6d0bf9c6f58c301d570ff8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__CP__NRL.html#gaa7a2410ad6d0bf9c6f58c301d570ff8c">CP_NRL_TIMER_PERIOD</a>&#160;&#160;&#160;1000</td></tr>
 <tr class="separator:gaa7a2410ad6d0bf9c6f58c301d570ff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac2ecb8e582b9e96e2be8a2cafd9816b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__CP__NRL.html#gac2ecb8e582b9e96e2be8a2cafd9816b1">CP_NRL_SUPPORT</a>&#160;&#160;&#160;0</td></tr>
@@ -84,23 +82,8 @@ Macros</h2></td></tr>
 <tr class="separator:gab8e1a2e3adb52fb71643448b1fb09234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p >The Network Redundancy Layer can be configured during compile time via several configuration options. They are defined to default values inside the <code><a class="el" href="cp__nrl_8h.html" title="CANpie Network Redundancy Layer (NRL)">cp_nrl.h</a></code> header file. It is recommended to modify the default values of <a class="el" href="group__CP__NRL.html#ga4dd3a7980b7598eedc31cc96834701de">CP_NRL_CHANNEL_MAX</a> and <a class="el" href="group__CP__NRL.html#gaa7a2410ad6d0bf9c6f58c301d570ff8c">CP_NRL_TIMER_PERIOD</a> by means of compiler options (e.g. setting them inside a CMakeLists.txt file). </p>
+<p >The Network Redundancy Layer can be configured during compile time via several configuration options. They are defined to default values inside the <code><a class="el" href="cp__nrl_8h.html" title="CANpie Network Redundancy Layer (NRL)">cp_nrl.h</a></code> header file. It is recommended to modify the default values of #CP_NRL_CHANNEL_MAX and <a class="el" href="group__CP__NRL.html#gaa7a2410ad6d0bf9c6f58c301d570ff8c">CP_NRL_TIMER_PERIOD</a> by means of compiler options (e.g. setting them inside a CMakeLists.txt file). </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga4dd3a7980b7598eedc31cc96834701de" name="ga4dd3a7980b7598eedc31cc96834701de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4dd3a7980b7598eedc31cc96834701de">&#9670;&nbsp;</a></span>CP_NRL_CHANNEL_MAX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CP_NRL_CHANNEL_MAX&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >This symbol defines the number of supported logical NRL channels. Settings this symbol to 0 (default) disables the NRL support, i.e. the symbol <a class="el" href="group__CP__NRL.html#gac2ecb8e582b9e96e2be8a2cafd9816b1">CP_NRL_SUPPORT</a> is forced to 0. </p>
-
-</div>
-</div>
 <a id="gab8e1a2e3adb52fb71643448b1fb09234" name="gab8e1a2e3adb52fb71643448b1fb09234"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gab8e1a2e3adb52fb71643448b1fb09234">&#9670;&nbsp;</a></span>CP_NRL_FAULT_SIMULATION</h2>
 
@@ -127,7 +110,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >This symbol is controlled by the value of <a class="el" href="group__CP__NRL.html#ga4dd3a7980b7598eedc31cc96834701de">CP_NRL_CHANNEL_MAX</a>. It is used for internal purposes during the compilation process of the NRL and can be evaluated by the application program. </p>
+<p >This symbol is controlled by the value of #CP_NRL_CHANNEL_MAX. It is used for internal purposes during the compilation process of the NRL and can be evaluated by the application program. </p>
 
 </div>
 </div>
