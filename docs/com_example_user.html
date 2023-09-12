@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -212,7 +212,7 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Clear CAN frame structure, the frame format does not matter here</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      CpMsgInit(&amp;tsEmcyMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
+<div class="line">      <a class="code hl_function" href="cp__msg_8h.html#a26324d9c511e7ee8815f86aa6dbe3d07">CpMsgInit</a>(&amp;tsEmcyMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
 <div class="line">      <a class="code hl_function" href="com__emcy_8h.html#a81b00d5274307672859e90ab66b4596a">ComEmcyConsQueueFetch</a>(ubNetV, &amp;tsEmcyMessageT);</div>
 <div class="line">      uwEmcyConsCountT--;</div>
 <div class="line"> </div>
@@ -220,7 +220,7 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Do something with the EMCY using the identifier of 082h.</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      <span class="keywordflow">if</span> (CpMsgGetIdentifier(&amp;tsEmcyMessageT) == 0x082)</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code hl_function" href="cp__msg_8h.html#ade1383c687076fd3c034a43fe30d71a7">CpMsgGetIdentifier</a>(&amp;tsEmcyMessageT) == 0x082)</div>
 <div class="line">      {</div>
 <div class="line"> </div>
 <div class="line">      }</div>
@@ -398,21 +398,6 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComTimeEventConsume()                                                                                              //</span></div>
-<div class="line"><span class="comment">// Handler for TIME consumer                                                                                          //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__time_8h.html#a64b9a38161608a1038e71f3292fe7ac6">ComTimeEventConsume</a>(uint8_t ubNetV, <a class="code hl_struct" href="structComTimeOfDay__s.html">ComTimeOfDay_ts</a> * ptsTimeStampV)</div>
-<div class="line">{</div>
-<div class="line">   (void) ptsTimeStampV;</div>
-<div class="line"> </div>
-<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
-<div class="line">   {</div>
-<div class="line"> </div>
-<div class="line">   }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
 <div class="line"><span class="comment">// ComNmtEventIdCollision()                                                                                           //</span></div>
 <div class="line"><span class="comment">// Handler for identifier collisions                                                                                  //</span></div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
@@ -530,6 +515,82 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="comment">// ComObjectEventProgress()                                                                                           //</span></div>
+<div class="line"><span class="comment">// Function handler for SDO / USDO segmented transfer                                                                 //</span></div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__object_8h.html#ab939496ea589b2ecf47df2e4a38b10ce">ComObjectEventProgress</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV, uint32_t ulByteCntV)</div>
+<div class="line">{</div>
+<div class="line">   (void) ulByteCntV;</div>
+<div class="line"> </div>
+<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
+<div class="line">   {</div>
+<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
+<div class="line">      {</div>
+<div class="line">         <span class="keywordflow">if</span>( (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a203bd511837c8272aa0da539f68cd502">uwIndex</a> == 0x2000) &amp;&amp; (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a838c23ab3c05002a09fb8951588419e3">ubSubIndex</a>) == 1 )</div>
+<div class="line">         {</div>
+<div class="line"> </div>
+<div class="line">         }</div>
+<div class="line">      }</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="comment">// ComObjectEventReady()                                                                                              //</span></div>
+<div class="line"><span class="comment">// Function handler for SDO / USDO                                                                                    //</span></div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="com__object_8h.html#a4dd28ba744c2946eeb804421ee3f49ba">ComObjectEventReady</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV, uint32_t ulAbortV)</div>
+<div class="line">{</div>
+<div class="line">   </div>
+<div class="line">   (void) ulAbortV;</div>
+<div class="line"> </div>
+<div class="line">   <span class="keywordflow">if</span> (ptsCoObjV != (<a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> *) 0L)</div>
+<div class="line">   {</div>
+<div class="line">      <span class="keywordflow">switch</span> (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a28d8840165e74d58d302e96bcf968009">ubMarker</a>)</div>
+<div class="line">      {</div>
+<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b">eCOM_OBJECT_MARKER_NODE_GET_INFO</a>:</div>
+<div class="line">            <a class="code hl_function" href="com__demo__app_8h.html#a8b1d262d46700b715dca3ca3dc913c2a">ComDemoAppConsoleLog</a>(ComDemoNodeInfoString(ubNetV, ubNodeIdV));</div>
+<div class="line">            <a class="code hl_function" href="com__node_8h.html#ac8d4da73e5112d0fbea0b569eb80c836">ComNodeSetHbProdTime</a>(ubNetV, ubNodeIdV, 500);</div>
+<div class="line">            <a class="code hl_function" href="com__nmt_8h.html#a331109f37a0a467e78982bf5e2504a26">ComNmtSetHbConsTime</a>(ubNetV, ubNodeIdV, 1000);</div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line"> </div>
+<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e">eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</a>:</div>
+<div class="line">            ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line"> </div>
+<div class="line">         <span class="keywordflow">default</span>:</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">      }</div>
+<div class="line">   }</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="comment">// ComObjectEventTimeout()                                                                                            //</span></div>
+<div class="line"><span class="comment">// Function handler for SDO / USDO time-out                                                                           //</span></div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
+<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__object_8h.html#a5fa7ac82fb8669a6669e3acd9d463294">ComObjectEventTimeout</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV)</div>
+<div class="line">{</div>
+<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
+<div class="line">   {</div>
+<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
+<div class="line">      {</div>
+<div class="line">         <span class="keywordflow">if</span>( (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a203bd511837c8272aa0da539f68cd502">uwIndex</a> == 0x2000) &amp;&amp; (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a838c23ab3c05002a09fb8951588419e3">ubSubIndex</a>) == 1 )</div>
+<div class="line">         {</div>
+<div class="line">            <span class="comment">// time-out on this object</span></div>
+<div class="line">         }</div>
+<div class="line">      }</div>
+<div class="line"> </div>
+<div class="line">   }</div>
+<div class="line"> </div>
+<div class="line">   ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
 <div class="line"><span class="comment">// ComPdoEventReceive()                                                                                               //</span></div>
 <div class="line"><span class="comment">// Function handler for PDO Receive                                                                                   //</span></div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
@@ -550,7 +611,7 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Clear CAN frame structure, the frame format does not matter here</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      CpMsgInit(&amp;tsPdoMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
+<div class="line">      <a class="code hl_function" href="cp__msg_8h.html#a26324d9c511e7ee8815f86aa6dbe3d07">CpMsgInit</a>(&amp;tsPdoMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
 <div class="line">      <a class="code hl_function" href="com__pdo_8h.html#a890d5cc3735febf63b616fc43562ec3b">ComPdoRcvQueueFetch</a>(ubNetV, &amp;tsPdoMessageT);</div>
 <div class="line">      uwRcvPdoCountT--;</div>
 <div class="line"> </div>
@@ -558,7 +619,7 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Do something with the PDO using the identifier of 27Fh.</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      <span class="keywordflow">if</span> (CpMsgGetIdentifier(&amp;tsPdoMessageT) == 0x27F)</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code hl_function" href="cp__msg_8h.html#ade1383c687076fd3c034a43fe30d71a7">CpMsgGetIdentifier</a>(&amp;tsPdoMessageT) == 0x27F)</div>
 <div class="line">      {</div>
 <div class="line"> </div>
 <div class="line">      }</div>
@@ -609,81 +670,6 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComSdoEventObjectReady()                                                                                           //</span></div>
-<div class="line"><span class="comment">// Function handler for SDO                                                                                           //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="com__sdo__cln_8h.html#a54298967b59967f26cb28abaa6ccf21e">ComSdoEventObjectReady</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV, uint32_t * pulAbortV)</div>
-<div class="line">{</div>
-<div class="line">   </div>
-<div class="line">   (void) pulAbortV;</div>
-<div class="line"> </div>
-<div class="line">   <span class="keywordflow">if</span> (ptsCoObjV != (<a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> *) 0L)</div>
-<div class="line">   {</div>
-<div class="line">      <span class="keywordflow">switch</span> (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a28d8840165e74d58d302e96bcf968009">ubMarker</a>)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b">eCOM_OBJECT_MARKER_NODE_GET_INFO</a>:</div>
-<div class="line">            <a class="code hl_function" href="com__demo__app_8h.html#a8b1d262d46700b715dca3ca3dc913c2a">ComDemoAppConsoleLog</a>(ComDemoNodeInfoString(ubNetV, ubNodeIdV));</div>
-<div class="line">            <a class="code hl_function" href="com__node_8h.html#ac8d4da73e5112d0fbea0b569eb80c836">ComNodeSetHbProdTime</a>(ubNetV, ubNodeIdV, 500);</div>
-<div class="line">            <a class="code hl_function" href="com__nmt_8h.html#a331109f37a0a467e78982bf5e2504a26">ComNmtSetHbConsTime</a>(ubNetV, ubNodeIdV, 1000);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line"> </div>
-<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e">eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</a>:</div>
-<div class="line">            ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line"> </div>
-<div class="line">         <span class="keywordflow">default</span>:</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">      }</div>
-<div class="line">   }</div>
-<div class="line"> </div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComSdoEventProgress()                                                                                              //</span></div>
-<div class="line"><span class="comment">// Function handler for SDO server block transfer                                                                     //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__sdo__cln_8h.html#ae017fbff017ecb32f0c20ee706549000">ComSdoEventProgress</a>(uint8_t ubNetV, uint8_t ubNodeIdV, uint16_t uwIndexV, uint8_t ubSubIndexV, </div>
-<div class="line">                          uint32_t ulByteCntV)</div>
-<div class="line">{</div>
-<div class="line">   (void) ulByteCntV;</div>
-<div class="line"> </div>
-<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
-<div class="line">   {</div>
-<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">if</span>( (uwIndexV == 0x2000) &amp;&amp; (ubSubIndexV) == 1 )</div>
-<div class="line">         {</div>
-<div class="line"> </div>
-<div class="line">         }</div>
-<div class="line">      }</div>
-<div class="line">   }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComSdoEventTimeout()                                                                                               //</span></div>
-<div class="line"><span class="comment">// Function handler for SDO time-out                                                                                  //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__sdo__cln_8h.html#a6f8869255a946252eb3ca81e8f284e3f">ComSdoEventTimeout</a>(uint8_t ubNetV, uint8_t ubNodeIdV, uint16_t uwIndexV, uint8_t ubSubIndexV)</div>
-<div class="line">{</div>
-<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
-<div class="line">   {</div>
-<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">if</span>( (uwIndexV == 0x2000) &amp;&amp; (ubSubIndexV) == 1 )</div>
-<div class="line">         {</div>
-<div class="line">            <span class="comment">// time-out on this object</span></div>
-<div class="line">         }</div>
-<div class="line">      }</div>
-<div class="line"> </div>
-<div class="line">   }</div>
-<div class="line"> </div>
-<div class="line">   ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
 <div class="line"><span class="comment">// ComSdoSrvBlkUpObjectSize()                                                                                         //</span></div>
 <div class="line"><span class="comment">// Function handler for SDO server block transfer                                                                     //</span></div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
@@ -707,77 +693,19 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComUsdoEventObjectReady()                                                                                          //</span></div>
-<div class="line"><span class="comment">// Function handler for USDO                                                                                          //</span></div>
+<div class="line"><span class="comment">// ComTimeEventConsume()                                                                                              //</span></div>
+<div class="line"><span class="comment">// Handler for TIME consumer                                                                                          //</span></div>
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__usdo__cln_8h.html#a422cbef56778033d3682ea9f808d2808">ComUsdoEventObjectReady</a>( uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV, uint8_t ubAbortV)</div>
+<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__time_8h.html#a64b9a38161608a1038e71f3292fe7ac6">ComTimeEventConsume</a>(uint8_t ubNetV, <a class="code hl_struct" href="structComTimeOfDay__s.html">ComTimeOfDay_ts</a> * ptsTimeStampV)</div>
 <div class="line">{</div>
-<div class="line">   (void) ubAbortV;</div>
+<div class="line">   (void) ptsTimeStampV;</div>
 <div class="line"> </div>
-<div class="line">   <span class="keywordflow">if</span> (ptsCoObjV != (<a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> *) 0L)</div>
-<div class="line">   {</div>
-<div class="line">      <span class="keywordflow">switch</span> (ptsCoObjV-&gt;<a class="code hl_variable" href="structCoObject__s.html#a28d8840165e74d58d302e96bcf968009">ubMarker</a>)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b">eCOM_OBJECT_MARKER_NODE_GET_INFO</a>:</div>
-<div class="line">            <a class="code hl_function" href="com__node_8h.html#ac8d4da73e5112d0fbea0b569eb80c836">ComNodeSetHbProdTime</a>(ubNetV, ubNodeIdV, 500);</div>
-<div class="line">            <a class="code hl_function" href="com__nmt_8h.html#a331109f37a0a467e78982bf5e2504a26">ComNmtSetHbConsTime</a>(ubNetV, ubNodeIdV, 1000);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line"> </div>
-<div class="line">         <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="com__object_8h.html#a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e">eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</a>:</div>
-<div class="line">            ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line"> </div>
-<div class="line">         <span class="keywordflow">default</span>:</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">      }</div>
-<div class="line">   }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComSdoEventProgress()                                                                                              //</span></div>
-<div class="line"><span class="comment">// Function handler for SDO server block transfer                                                                     //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__usdo__cln_8h.html#a85a51fc19a3ae39e5b965a9bfbda47eb">ComUsdoEventProgress</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV, uint32_t ulByteCntV)</div>
-<div class="line">{</div>
-<div class="line">   (void) ulByteCntV;</div>
-<div class="line">   </div>
 <div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
 <div class="line">   {</div>
-<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">if</span> ( ptsCoObjV != (<a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> *) 0L )</div>
-<div class="line">         {</div>
-<div class="line"> </div>
-<div class="line">         }</div>
-<div class="line">      }</div>
-<div class="line">   }</div>
-<div class="line"> </div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="comment">// ComUsdoEventTimeout()                                                                                              //</span></div>
-<div class="line"><span class="comment">// Function handler for USDO time-out                                                                                 //</span></div>
-<div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
-<div class="line"><span class="keywordtype">void</span>  <a class="code hl_function" href="com__usdo__cln_8h.html#a021afb8cf7b152d51f0fa9c47c6b5014">ComUsdoEventTimeout</a>(uint8_t ubNetV, uint8_t ubNodeIdV, <a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> * ptsCoObjV)</div>
-<div class="line">{</div>
-<div class="line">   <span class="keywordflow">if</span> (ubNetV == <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>)</div>
-<div class="line">   {</div>
-<div class="line">      <span class="keywordflow">if</span> (ubNodeIdV == 1)</div>
-<div class="line">      {</div>
-<div class="line">         <span class="keywordflow">if</span> ( ptsCoObjV != (<a class="code hl_struct" href="structCoObject__s.html">CoObject_ts</a> *) 0L )</div>
-<div class="line">         {</div>
-<div class="line">            <span class="comment">// time-out on this object</span></div>
-<div class="line">         }</div>
-<div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">   }</div>
-<div class="line"> </div>
-<div class="line">   ComDemoNmtConfigurationDone(ubNetV, ubNodeIdV);</div>
-<div class="line">   </div>
 <div class="line">}</div>
+<div class="line"> </div>
 <div class="ttc" id="acanpie_8h_html_a1701ab116f6fb6d511dfc34e5115de2ba9b8b12bb1d7278221f52cc526e0c359e"><div class="ttname"><a href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba9b8b12bb1d7278221f52cc526e0c359e">eCP_BITRATE_2M</a></div><div class="ttdeci">@ eCP_BITRATE_2M</div><div class="ttdef"><b>Definition:</b> canpie.h:692</div></div>
 <div class="ttc" id="acom__conf_8h_html_af817cf6da870d9af8a965a363de4dd89"><div class="ttname"><a href="com__conf_8h.html#af817cf6da870d9af8a965a363de4dd89">COM_NET_MAX</a></div><div class="ttdeci">#define COM_NET_MAX</div><div class="ttdef"><b>Definition:</b> com_conf.h:50</div></div>
 <div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition:</b> com_defs.h:746</div></div>
@@ -793,11 +721,11 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="ttc" id="acom__led_8h_html"><div class="ttname"><a href="com__led_8h.html">com_led.h</a></div><div class="ttdoc">CANopen Master LED Management .</div></div>
 <div class="ttc" id="acom__lss_8h_html"><div class="ttname"><a href="com__lss_8h.html">com_lss.h</a></div><div class="ttdoc">CANopen Master Layer Setting Services (LSS) .</div></div>
 <div class="ttc" id="acom__lss_8h_html_a1caf58207a9cb796274da17ed39846dd"><div class="ttname"><a href="com__lss_8h.html#a1caf58207a9cb796274da17ed39846dd">ComLssGetStatus</a></div><div class="ttdeci">ComStatus_tv ComLssGetStatus(uint8_t ubNetV, uint8_t *pubStatusV)</div></div>
-<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494a7f2d2296a7de67ad20e76b1ab03daed8"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494a7f2d2296a7de67ad20e76b1ab03daed8">eCOM_LSS_PROT_CONF_ID</a></div><div class="ttdeci">@ eCOM_LSS_PROT_CONF_ID</div><div class="ttdef"><b>Definition:</b> com_lss.h:132</div></div>
+<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494a7f2d2296a7de67ad20e76b1ab03daed8"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494a7f2d2296a7de67ad20e76b1ab03daed8">eCOM_LSS_PROT_CONF_ID</a></div><div class="ttdeci">@ eCOM_LSS_PROT_CONF_ID</div><div class="ttdef"><b>Definition:</b> com_lss.h:142</div></div>
 <div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494aa151e84687b011af670d9c2a9b5d5dc4"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494aa151e84687b011af670d9c2a9b5d5dc4">eCOM_LSS_PROT_SWI_GLB</a></div><div class="ttdeci">@ eCOM_LSS_PROT_SWI_GLB</div><div class="ttdef"><b>Definition:</b> com_lss.h:99</div></div>
-<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494ace00ab77187ef3f1c3f59dc418accb2d"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494ace00ab77187ef3f1c3f59dc418accb2d">eCOM_LSS_PROT_IDENTIFY</a></div><div class="ttdeci">@ eCOM_LSS_PROT_IDENTIFY</div><div class="ttdef"><b>Definition:</b> com_lss.h:141</div></div>
-<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494ad87fa3335130121bfe9d502c98e8813d"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494ad87fa3335130121bfe9d502c98e8813d">eCOM_LSS_PROT_FASTSCAN</a></div><div class="ttdeci">@ eCOM_LSS_PROT_FASTSCAN</div><div class="ttdef"><b>Definition:</b> com_lss.h:138</div></div>
-<div class="ttc" id="acom__lss_8h_html_a4dda6a2b35996ad89b3aaee78dcb6d05af5a6c7a8eaa0b4f94482101224ce14c5"><div class="ttname"><a href="com__lss_8h.html#a4dda6a2b35996ad89b3aaee78dcb6d05af5a6c7a8eaa0b4f94482101224ce14c5">eCOM_LSS_STAT_SUCCESS</a></div><div class="ttdeci">@ eCOM_LSS_STAT_SUCCESS</div><div class="ttdef"><b>Definition:</b> com_lss.h:158</div></div>
+<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494ace00ab77187ef3f1c3f59dc418accb2d"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494ace00ab77187ef3f1c3f59dc418accb2d">eCOM_LSS_PROT_IDENTIFY</a></div><div class="ttdeci">@ eCOM_LSS_PROT_IDENTIFY</div><div class="ttdef"><b>Definition:</b> com_lss.h:151</div></div>
+<div class="ttc" id="acom__lss_8h_html_a24ca7e6eae85549160f916f3b2779494ad87fa3335130121bfe9d502c98e8813d"><div class="ttname"><a href="com__lss_8h.html#a24ca7e6eae85549160f916f3b2779494ad87fa3335130121bfe9d502c98e8813d">eCOM_LSS_PROT_FASTSCAN</a></div><div class="ttdeci">@ eCOM_LSS_PROT_FASTSCAN</div><div class="ttdef"><b>Definition:</b> com_lss.h:148</div></div>
+<div class="ttc" id="acom__lss_8h_html_a4dda6a2b35996ad89b3aaee78dcb6d05af5a6c7a8eaa0b4f94482101224ce14c5"><div class="ttname"><a href="com__lss_8h.html#a4dda6a2b35996ad89b3aaee78dcb6d05af5a6c7a8eaa0b4f94482101224ce14c5">eCOM_LSS_STAT_SUCCESS</a></div><div class="ttdeci">@ eCOM_LSS_STAT_SUCCESS</div><div class="ttdef"><b>Definition:</b> com_lss.h:168</div></div>
 <div class="ttc" id="acom__lss_8h_html_ab0ebce939f5cea8cf3cc216d6f83e1b6"><div class="ttname"><a href="com__lss_8h.html#ab0ebce939f5cea8cf3cc216d6f83e1b6">ComLssEventReceive</a></div><div class="ttdeci">void ComLssEventReceive(uint8_t ubNetV, uint8_t ubLssProtocolV)</div></div>
 <div class="ttc" id="acom__mgr_8h_html"><div class="ttname"><a href="com__mgr_8h.html">com_mgr.h</a></div><div class="ttdoc">CANopen (FD) Master management functions .</div></div>
 <div class="ttc" id="acom__mgr_8h_html_a0bb367fc79d6bdbdc8cddf378e8a8d13"><div class="ttname"><a href="com__mgr_8h.html#a0bb367fc79d6bdbdc8cddf378e8a8d13">ComMgrUserInit</a></div><div class="ttdeci">ComStatus_tv ComMgrUserInit(uint8_t ubNetV)</div><div class="ttdoc">Change CANopen Master settings.</div></div>
@@ -818,8 +746,11 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="ttc" id="acom__nmt_8h_html_aaf0db00d72ab066abcb5020d4a98e83e"><div class="ttname"><a href="com__nmt_8h.html#aaf0db00d72ab066abcb5020d4a98e83e">ComNmtEventIdCollision</a></div><div class="ttdeci">void ComNmtEventIdCollision(uint8_t ubNetV)</div></div>
 <div class="ttc" id="acom__nmt_8h_html_aedbd0dccda7619d8c1fd0c89cce955da"><div class="ttname"><a href="com__nmt_8h.html#aedbd0dccda7619d8c1fd0c89cce955da">ComNmtEventMasterDetection</a></div><div class="ttdeci">void ComNmtEventMasterDetection(uint8_t ubNetV, uint8_t ubResultV)</div><div class="ttdoc">NMT master detection callback.</div></div>
 <div class="ttc" id="acom__node_8h_html_ac8d4da73e5112d0fbea0b569eb80c836"><div class="ttname"><a href="com__node_8h.html#ac8d4da73e5112d0fbea0b569eb80c836">ComNodeSetHbProdTime</a></div><div class="ttdeci">ComStatus_tv ComNodeSetHbProdTime(uint8_t ubNetV, uint8_t ubNodeIdV, uint16_t uwHeartbeatV)</div></div>
-<div class="ttc" id="acom__object_8h_html_a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b"><div class="ttname"><a href="com__object_8h.html#a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b">eCOM_OBJECT_MARKER_NODE_GET_INFO</a></div><div class="ttdeci">@ eCOM_OBJECT_MARKER_NODE_GET_INFO</div><div class="ttdef"><b>Definition:</b> com_object.h:77</div></div>
-<div class="ttc" id="acom__object_8h_html_a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e"><div class="ttname"><a href="com__object_8h.html#a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e">eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</a></div><div class="ttdeci">@ eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</div><div class="ttdef"><b>Definition:</b> com_object.h:80</div></div>
+<div class="ttc" id="acom__object_8h_html_a4dd28ba744c2946eeb804421ee3f49ba"><div class="ttname"><a href="com__object_8h.html#a4dd28ba744c2946eeb804421ee3f49ba">ComObjectEventReady</a></div><div class="ttdeci">void ComObjectEventReady(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV, uint32_t ulAbortV)</div></div>
+<div class="ttc" id="acom__object_8h_html_a5fa7ac82fb8669a6669e3acd9d463294"><div class="ttname"><a href="com__object_8h.html#a5fa7ac82fb8669a6669e3acd9d463294">ComObjectEventTimeout</a></div><div class="ttdeci">void ComObjectEventTimeout(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV)</div></div>
+<div class="ttc" id="acom__object_8h_html_a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b"><div class="ttname"><a href="com__object_8h.html#a626f37efe07f938454c6ef910f64513da2cf8da4ca51f894d5129855f87cba21b">eCOM_OBJECT_MARKER_NODE_GET_INFO</a></div><div class="ttdeci">@ eCOM_OBJECT_MARKER_NODE_GET_INFO</div><div class="ttdef"><b>Definition:</b> com_object.h:76</div></div>
+<div class="ttc" id="acom__object_8h_html_a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e"><div class="ttname"><a href="com__object_8h.html#a626f37efe07f938454c6ef910f64513daffa0a936c27409df781e28fed3a0e21e">eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</a></div><div class="ttdeci">@ eCOM_OBJECT_MARKER_NODE_SET_HEARTBEAT</div><div class="ttdef"><b>Definition:</b> com_object.h:79</div></div>
+<div class="ttc" id="acom__object_8h_html_ab939496ea589b2ecf47df2e4a38b10ce"><div class="ttname"><a href="com__object_8h.html#ab939496ea589b2ecf47df2e4a38b10ce">ComObjectEventProgress</a></div><div class="ttdeci">void ComObjectEventProgress(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV, uint32_t ulByteCntV)</div></div>
 <div class="ttc" id="acom__pdo_8h_html"><div class="ttname"><a href="com__pdo_8h.html">com_pdo.h</a></div><div class="ttdoc">CANopen Master PDO service .</div></div>
 <div class="ttc" id="acom__pdo_8h_html_a46a07982959e7015eac54c463f3a908d"><div class="ttname"><a href="com__pdo_8h.html#a46a07982959e7015eac54c463f3a908d">ComPdoEventReceive</a></div><div class="ttdeci">void ComPdoEventReceive(uint8_t ubNetV, uint16_t uwPdoNumV)</div></div>
 <div class="ttc" id="acom__pdo_8h_html_a619911f43fbbcf7792f941e89388243d"><div class="ttname"><a href="com__pdo_8h.html#a619911f43fbbcf7792f941e89388243d">ComPdoRcvQueueCount</a></div><div class="ttdeci">ComStatus_tv ComPdoRcvQueueCount(uint8_t ubNetV, uint16_t *puwCountV)</div></div>
@@ -829,20 +760,18 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <div class="ttc" id="acom__safety_8h_html_a1db2276fcc6d68a60c667cff0dcba61c"><div class="ttname"><a href="com__safety_8h.html#a1db2276fcc6d68a60c667cff0dcba61c">ComSafetySrdoRcvDataUpdate</a></div><div class="ttdeci">void ComSafetySrdoRcvDataUpdate(uint8_t ubNetV, uint8_t ubNodeIdV, uint8_t ubSrdoNumberV)</div></div>
 <div class="ttc" id="acom__safety_8h_html_a4627cdee046c7783c656ab39760fb9df"><div class="ttname"><a href="com__safety_8h.html#a4627cdee046c7783c656ab39760fb9df">ComSafetySrdoTrmDataUpdate</a></div><div class="ttdeci">void ComSafetySrdoTrmDataUpdate(uint8_t ubNetV, uint8_t ubNodeIdV, uint8_t ubSrdoNumberV)</div></div>
 <div class="ttc" id="acom__sdo__cln_8h_html"><div class="ttname"><a href="com__sdo__cln_8h.html">com_sdo_cln.h</a></div><div class="ttdoc">CANopen (FD) Master SDO client .</div></div>
-<div class="ttc" id="acom__sdo__cln_8h_html_a54298967b59967f26cb28abaa6ccf21e"><div class="ttname"><a href="com__sdo__cln_8h.html#a54298967b59967f26cb28abaa6ccf21e">ComSdoEventObjectReady</a></div><div class="ttdeci">void ComSdoEventObjectReady(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV, uint32_t *pulAbortV)</div></div>
-<div class="ttc" id="acom__sdo__cln_8h_html_a6f8869255a946252eb3ca81e8f284e3f"><div class="ttname"><a href="com__sdo__cln_8h.html#a6f8869255a946252eb3ca81e8f284e3f">ComSdoEventTimeout</a></div><div class="ttdeci">void ComSdoEventTimeout(uint8_t ubNetV, uint8_t ubNodeIdV, uint16_t uwIndexV, uint8_t ubSubIndexV)</div></div>
-<div class="ttc" id="acom__sdo__cln_8h_html_ae017fbff017ecb32f0c20ee706549000"><div class="ttname"><a href="com__sdo__cln_8h.html#ae017fbff017ecb32f0c20ee706549000">ComSdoEventProgress</a></div><div class="ttdeci">void ComSdoEventProgress(uint8_t ubNetV, uint8_t ubNodeIdV, uint16_t uwIndexV, uint8_t ubSubIndexV, uint32_t ulByteCntV)</div></div>
 <div class="ttc" id="acom__sdo__srv_8h_html_a00e45a00b0bdc8d4b83795413d5fcf16"><div class="ttname"><a href="com__sdo__srv_8h.html#a00e45a00b0bdc8d4b83795413d5fcf16">ComSdoSrvBlkUpObjectSize</a></div><div class="ttdeci">uint32_t ComSdoSrvBlkUpObjectSize(uint8_t ubNetV, uint16_t uwIndexV, uint8_t ubSubIndexV)</div></div>
 <div class="ttc" id="acom__sync_8h_html_aa3ba50abc6dd35e982fed6fdae86e0ee"><div class="ttname"><a href="com__sync_8h.html#aa3ba50abc6dd35e982fed6fdae86e0ee">ComSyncEnable</a></div><div class="ttdeci">ComStatus_tv ComSyncEnable(uint8_t ubNetV, uint8_t ubEnableV)</div></div>
 <div class="ttc" id="acom__time_8h_html"><div class="ttname"><a href="com__time_8h.html">com_time.h</a></div><div class="ttdoc">CANopen Master Stack - TIME service (TIME) .</div></div>
 <div class="ttc" id="acom__time_8h_html_a64b9a38161608a1038e71f3292fe7ac6"><div class="ttname"><a href="com__time_8h.html#a64b9a38161608a1038e71f3292fe7ac6">ComTimeEventConsume</a></div><div class="ttdeci">void ComTimeEventConsume(uint8_t ubNetV, ComTimeOfDay_ts *ptsTimeStampV)</div></div>
-<div class="ttc" id="acom__usdo__cln_8h_html_a021afb8cf7b152d51f0fa9c47c6b5014"><div class="ttname"><a href="com__usdo__cln_8h.html#a021afb8cf7b152d51f0fa9c47c6b5014">ComUsdoEventTimeout</a></div><div class="ttdeci">void ComUsdoEventTimeout(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV)</div></div>
-<div class="ttc" id="acom__usdo__cln_8h_html_a422cbef56778033d3682ea9f808d2808"><div class="ttname"><a href="com__usdo__cln_8h.html#a422cbef56778033d3682ea9f808d2808">ComUsdoEventObjectReady</a></div><div class="ttdeci">void ComUsdoEventObjectReady(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV, uint8_t ubAbortV)</div></div>
-<div class="ttc" id="acom__usdo__cln_8h_html_a85a51fc19a3ae39e5b965a9bfbda47eb"><div class="ttname"><a href="com__usdo__cln_8h.html#a85a51fc19a3ae39e5b965a9bfbda47eb">ComUsdoEventProgress</a></div><div class="ttdeci">void ComUsdoEventProgress(uint8_t ubNetV, uint8_t ubNodeIdV, CoObject_ts *ptsCoObjV, uint32_t ulByteCntV)</div></div>
+<div class="ttc" id="acp__msg_8h_html_a26324d9c511e7ee8815f86aa6dbe3d07"><div class="ttname"><a href="cp__msg_8h.html#a26324d9c511e7ee8815f86aa6dbe3d07">CpMsgInit</a></div><div class="ttdeci">void CpMsgInit(CpCanMsg_ts *ptsCanMsgV, uint8_t ubFormatV)</div><div class="ttdoc">Initialise message structure.</div></div>
+<div class="ttc" id="acp__msg_8h_html_ade1383c687076fd3c034a43fe30d71a7"><div class="ttname"><a href="cp__msg_8h.html#ade1383c687076fd3c034a43fe30d71a7">CpMsgGetIdentifier</a></div><div class="ttdeci">uint32_t CpMsgGetIdentifier(const CpCanMsg_ts *ptsCanMsgV)</div><div class="ttdoc">Get Identifier Value.</div></div>
 <div class="ttc" id="agroup__CP__MSG__CTRL_html_ga048baffc0f9875ee387bf4ad151d1f34"><div class="ttname"><a href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a></div><div class="ttdeci">#define CP_MSG_FORMAT_CBFF</div><div class="ttdef"><b>Definition:</b> canpie.h:415</div></div>
 <div class="ttc" id="amc__compiler_8h_html_a2f710ac364a044bed5fd8d6fc04bd20e"><div class="ttname"><a href="mc__compiler_8h.html#a2f710ac364a044bed5fd8d6fc04bd20e">CPP_SECTION</a></div><div class="ttdeci">#define CPP_SECTION</div><div class="ttdef"><b>Definition:</b> mc_compiler.h:1182</div></div>
-<div class="ttc" id="astructCoObject__s_html"><div class="ttname"><a href="structCoObject__s.html">CoObject_s</a></div><div class="ttdoc">Object structure.</div><div class="ttdef"><b>Definition:</b> com_object.h:121</div></div>
-<div class="ttc" id="astructCoObject__s_html_a28d8840165e74d58d302e96bcf968009"><div class="ttname"><a href="structCoObject__s.html#a28d8840165e74d58d302e96bcf968009">CoObject_s::ubMarker</a></div><div class="ttdeci">uint8_t ubMarker</div><div class="ttdef"><b>Definition:</b> com_object.h:130</div></div>
+<div class="ttc" id="astructCoObject__s_html"><div class="ttname"><a href="structCoObject__s.html">CoObject_s</a></div><div class="ttdoc">Object structure.</div><div class="ttdef"><b>Definition:</b> com_object.h:120</div></div>
+<div class="ttc" id="astructCoObject__s_html_a203bd511837c8272aa0da539f68cd502"><div class="ttname"><a href="structCoObject__s.html#a203bd511837c8272aa0da539f68cd502">CoObject_s::uwIndex</a></div><div class="ttdeci">uint16_t uwIndex</div><div class="ttdef"><b>Definition:</b> com_object.h:123</div></div>
+<div class="ttc" id="astructCoObject__s_html_a28d8840165e74d58d302e96bcf968009"><div class="ttname"><a href="structCoObject__s.html#a28d8840165e74d58d302e96bcf968009">CoObject_s::ubMarker</a></div><div class="ttdeci">uint8_t ubMarker</div><div class="ttdef"><b>Definition:</b> com_object.h:129</div></div>
+<div class="ttc" id="astructCoObject__s_html_a838c23ab3c05002a09fb8951588419e3"><div class="ttname"><a href="structCoObject__s.html#a838c23ab3c05002a09fb8951588419e3">CoObject_s::ubSubIndex</a></div><div class="ttdeci">uint8_t ubSubIndex</div><div class="ttdef"><b>Definition:</b> com_object.h:126</div></div>
 <div class="ttc" id="astructComTimeOfDay__s_html"><div class="ttname"><a href="structComTimeOfDay__s.html">ComTimeOfDay_s</a></div><div class="ttdoc">Time of day.</div><div class="ttdef"><b>Definition:</b> com_time.h:109</div></div>
 <div class="ttc" id="astructCpCanMsg__s_html"><div class="ttname"><a href="structCpCanMsg__s.html">CpCanMsg_s</a></div><div class="ttdoc">CAN message structure.</div><div class="ttdef"><b>Definition:</b> canpie.h:1005</div></div>
 <div class="ttc" id="astructCpState__s_html"><div class="ttname"><a href="structCpState__s.html">CpState_s</a></div><div class="ttdoc">CAN state structure.</div><div class="ttdef"><b>Definition:</b> canpie.h:1246</div></div>
@@ -853,7 +782,7 @@ $(document).ready(function(){initNavTree('com_example_user.html',''); initResiza
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

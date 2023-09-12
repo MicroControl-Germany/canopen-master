@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -108,7 +108,25 @@ $(document).ready(function(){initNavTree('com_version.html',''); initResizable()
   <div class="headertitle"><div class="title">Version History </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_pages_com_api_com_version"></a> </p><h1>Version 6.04 - 2023.01</h1>
+<div class="textblock"><p><a class="anchor" id="md_pages_com_api_com_version"></a> </p><h1>Version 6.06 - 2023.09</h1>
+<ul>
+<li>LSS - add support for LSS identify remote slave protocol</li>
+<li>SDO client - Call handler ComSdoEventObjectReady() on client abort</li>
+<li>SDO client - reload timeout for segmented SDO read operation</li>
+<li>SDO / USDO client - use generic callback functions (<a class="el" href="com__object_8h.html#a4dd28ba744c2946eeb804421ee3f49ba">ComObjectEventReady()</a>, etc.)</li>
+<li>NMT demo - Add new function ComDemoNmtStateString()</li>
+<li>NODE demo - Add new function ComDemoNodeInfoString()</li>
+<li>Generic thread-safe FIFO (OS independent)</li>
+<li>EMCY - use individual mailbox for EMCY consumer</li>
+<li>LED - support disabled by default</li>
+<li>Common demo code initiated</li>
+<li>Update board demo code according to common demo code</li>
+<li>New module path for CMake files</li>
+<li>Add data type to CoObject_ts structure</li>
+<li>Add stubs for LED testing</li>
+<li>Fix compiler warnings / static code tests</li>
+</ul>
+<h1>Version 6.04 - 2023.01</h1>
 <ul>
 <li>PDO - send TPDO via API (see <a class="el" href="com__pdo_8h.html#a64733472cbb80d755fc042b29f1deebe">ComPdoTrmPacket()</a>)</li>
 <li>PDO - add index into CANpie FD message structure for RPDO</li>
@@ -143,7 +161,7 @@ $(document).ready(function(){initNavTree('com_version.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

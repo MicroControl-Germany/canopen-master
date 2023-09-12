@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('structCoObject__s.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The object structure is used to upload or download data between the CANopen (FD) Master and a CANopen (FD) Slave device. This structure is used by the functions <a class="el" href="com__sdo__cln_8h.html#ad236128dad193390fd141677563e8c78">ComSdoReadObject()</a>, <a class="el" href="com__sdo__cln_8h.html#a6423074db7425df687b65af5a55eeb29">ComSdoWriteObject()</a> and <a class="el" href="com__sdo__cln_8h.html#a54298967b59967f26cb28abaa6ccf21e">ComSdoEventObjectReady()</a> in Classical CANopen mode. </p>
+<div class="textblock"><p>The object structure is used to upload or download data between the CANopen (FD) Master and a CANopen (FD) Slave device. This structure is used by the functions <a class="el" href="com__sdo__cln_8h.html#ad236128dad193390fd141677563e8c78">ComSdoReadObject()</a>, <a class="el" href="com__sdo__cln_8h.html#a6423074db7425df687b65af5a55eeb29">ComSdoWriteObject()</a> and <a class="el" href="com__object_8h.html#a4dd28ba744c2946eeb804421ee3f49ba">ComObjectEventReady()</a> in Classical CANopen mode. </p>
 </div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CoObject_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('structCoObject__s.html',''); initResiz
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="structCoObject__s__coll__graph.png" border="0" usemap="#aCoObject__s_coll__map" alt="Collaboration graph"/></div>
 <map name="aCoObject__s_coll__map" id="aCoObject__s_coll__map">
-<area shape="rect" title="Object structure." alt="" coords="5,5,108,141"/>
+<area shape="rect" title="Object structure." alt="" coords="5,5,109,159"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -133,6 +133,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a28d8840165e74d58d302e96bcf968009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac79e7be1b016e7a63b50379721d61aff"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCoObject__s.html#ac79e7be1b016e7a63b50379721d61aff">ulDataSize</a></td></tr>
 <tr class="separator:ac79e7be1b016e7a63b50379721d61aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1007a1bb6a6b854e729bdeaa652fb5e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCoObject__s.html#ae1007a1bb6a6b854e729bdeaa652fb5e">ubDataType</a></td></tr>
+<tr class="separator:ae1007a1bb6a6b854e729bdeaa652fb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f9528c0f2b3517626da7d075de76f49"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCoObject__s.html#a9f9528c0f2b3517626da7d075de76f49">pvdData</a></td></tr>
 <tr class="separator:a9f9528c0f2b3517626da7d075de76f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -149,6 +151,22 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pointer to data <br  />
+ </p>
+
+</div>
+</div>
+<a id="ae1007a1bb6a6b854e729bdeaa652fb5e" name="ae1007a1bb6a6b854e729bdeaa652fb5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1007a1bb6a6b854e729bdeaa652fb5e">&#9670;&#160;</a></span>ubDataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t CoObject_s::ubDataType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data type of the object, required for CANopen FD <br  />
  </p>
 
 </div>
@@ -224,7 +242,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structCoObject__s.html">CoObject_s</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

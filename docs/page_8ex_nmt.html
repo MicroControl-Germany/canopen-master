@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -184,8 +184,7 @@ $(document).ready(function(){initNavTree('page_8ex_nmt.html',''); initResizable(
 <div class="line"><span class="comment">//--------------------------------------------------------------------------------------------------------------------//</span></div>
 <div class="line"><a class="code hl_typedef" href="com__defs_8h.html#adb338bd8ca45dd8a183241bf1f19b828">ComStatus_tv</a> ComDemoNmtInit(uint8_t ubNetV)</div>
 <div class="line">{</div>
-<div class="line">   <a class="code hl_define" href="mc__fifo_8h.html#ac31899fe33c496afce6f680e7b4eff65">MC_FIFO_INIT</a>(atsNmtFifoS[ubNetV], DEMO_NMT_FIFO_SIZE);</div>
-<div class="line">   atsNmtNodeS[ubNetV] = 0;</div>
+<div class="line">   <a class="code hl_function" href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit</a>(&amp;atsNmtFifoS[ubNetV],  &amp;atsNmtDataS[ubNetV][0], <span class="keyword">sizeof</span>(uint16_t), DEMO_NMT_FIFO_SIZE);</div>
 <div class="line">   <span class="keywordflow">return</span> (<a class="code hl_enumvalue" href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -197,13 +196,18 @@ $(document).ready(function(){initNavTree('page_8ex_nmt.html',''); initResizable(
 <div class="line"><a class="code hl_typedef" href="com__defs_8h.html#adb338bd8ca45dd8a183241bf1f19b828">ComStatus_tv</a> <a class="code hl_function" href="com__demo_8h.html#a98f474430cb44154aedf9e82e2ce30e3">ComDemoNmtProcess</a>(uint8_t ubNetV)</div>
 <div class="line">{</div>
 <div class="line">   uint16_t uwFifoValueT = 0;</div>
+<div class="line">   uint16_t *puwFifoEntryT;</div>
 <div class="line"> </div>
 <div class="line">   <span class="keywordflow">if</span> (atsNmtNodeS[ubNetV] == 0)</div>
 <div class="line">   {</div>
-<div class="line">      <span class="keywordflow">if</span> (<a class="code hl_define" href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a>(atsNmtFifoS[ubNetV]) == 0)</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code hl_function" href="mc__fifo_8h.html#aa9bb3042a46223bc016febe05b93d433">McFifoIsEmpty</a>(&amp;atsNmtFifoS[ubNetV]) == 0)</div>
 <div class="line">      {</div>
-<div class="line">         uwFifoValueT = atsNmtDataS[ubNetV][MC_FIFO_DATA_OUT(atsNmtFifoS[ubNetV])];</div>
-<div class="line">         <a class="code hl_define" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a>(atsNmtFifoS[ubNetV]);</div>
+<div class="line">         <span class="comment">//-----------------------------------------------------------------------------------</span></div>
+<div class="line">         <span class="comment">// Read NMT state and node-id from FIFO</span></div>
+<div class="line">         <span class="comment">//</span></div>
+<div class="line">         puwFifoEntryT = <a class="code hl_function" href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr</a>(&amp;atsNmtFifoS[ubNetV]);</div>
+<div class="line">         uwFifoValueT  = *puwFifoEntryT;</div>
+<div class="line">         <a class="code hl_function" href="mc__fifo_8h.html#ad37731ee4337524feb6cff12781d3905">McFifoIncOut</a>(&amp;atsNmtFifoS[ubNetV]);</div>
 <div class="line"> </div>
 <div class="line">         uint8_t ubNodeIdT   = (uint8_t) uwFifoValueT;</div>
 <div class="line">         uint8_t ubNmtStateT = (uint8_t) (uwFifoValueT &gt;&gt; 8);</div>
@@ -244,18 +248,20 @@ $(document).ready(function(){initNavTree('page_8ex_nmt.html',''); initResizable(
 <div class="line"><span class="keywordtype">void</span> ComDemoNmtQueueStateChange(uint8_t ubNetV, uint8_t ubNodeIdV, uint8_t ubNmtStateV)</div>
 <div class="line">{</div>
 <div class="line">   uint16_t uwFifoValueT = 0;</div>
-<div class="line">   </div>
+<div class="line">   uint16_t *puwFifoEntryT;</div>
+<div class="line"> </div>
 <div class="line">   uwFifoValueT = ubNmtStateV;</div>
 <div class="line">   uwFifoValueT = uwFifoValueT &lt;&lt; 8;</div>
 <div class="line">   uwFifoValueT = uwFifoValueT + ubNodeIdV;</div>
 <div class="line"> </div>
-<div class="line">   <span class="keywordflow">if</span> (<a class="code hl_define" href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a>(atsNmtFifoS[ubNetV]) == 0)</div>
+<div class="line">   <span class="keywordflow">if</span> (<a class="code hl_function" href="mc__fifo_8h.html#a864245a253a110c78ddc051f22f7adae">McFifoIsFull</a>(&amp;atsNmtFifoS[ubNetV]) == 0)</div>
 <div class="line">   {</div>
 <div class="line">      <span class="comment">//------------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Push NMT state and node-id to FIFO</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      atsNmtDataS[ubNetV][MC_FIFO_DATA_IN(atsNmtFifoS[ubNetV])] = uwFifoValueT;</div>
-<div class="line">      <a class="code hl_define" href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a>(atsNmtFifoS[ubNetV]);</div>
+<div class="line">      puwFifoEntryT = <a class="code hl_function" href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr</a>(&amp;atsNmtFifoS[ubNetV]);</div>
+<div class="line">      *puwFifoEntryT = uwFifoValueT;</div>
+<div class="line">      <a class="code hl_function" href="mc__fifo_8h.html#a5aa9c3313d6a17832a0935cbfc3a04f6">McFifoIncIn</a>(&amp;atsNmtFifoS[ubNetV]);</div>
 <div class="line">   }</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -359,12 +365,14 @@ $(document).ready(function(){initNavTree('page_8ex_nmt.html',''); initResizable(
 <div class="ttc" id="acom__nmt_8h_html_a9b458d83bb17848805da8fc9c98130fb"><div class="ttname"><a href="com__nmt_8h.html#a9b458d83bb17848805da8fc9c98130fb">ComNmtSetNodeState</a></div><div class="ttdeci">ComStatus_tv ComNmtSetNodeState(uint8_t ubNetV, uint8_t ubNodeIdV, uint8_t ubStateV)</div><div class="ttdoc">Set NMT state of CANopen device.</div></div>
 <div class="ttc" id="acom__nmt_8h_html_ab555e1aecba6c98474ff986d8aad7feb"><div class="ttname"><a href="com__nmt_8h.html#ab555e1aecba6c98474ff986d8aad7feb">ComNmtSetInhibit</a></div><div class="ttdeci">ComStatus_tv ComNmtSetInhibit(uint8_t ubNetV, uint32_t ulTimeV)</div><div class="ttdoc">Set NMT message inhibit time.</div></div>
 <div class="ttc" id="amc__fifo_8h_html"><div class="ttname"><a href="mc__fifo_8h.html">mc_fifo.h</a></div><div class="ttdoc">Definitions and prototypes for FIFO implementation.</div></div>
-<div class="ttc" id="amc__fifo_8h_html_a18729b62897b8af08bd5cf5616a318c0"><div class="ttname"><a href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a></div><div class="ttdeci">#define MC_FIFO_INC_OUT(ctrl)</div><div class="ttdoc">This macro have to be execute when data was read from the FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:289</div></div>
-<div class="ttc" id="amc__fifo_8h_html_a3c30e1126af099f3379dad26694dc2a1"><div class="ttname"><a href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a></div><div class="ttdeci">#define MC_FIFO_FULL(ctrl)</div><div class="ttdoc">This macro returns 1 if FIFO is full or 0 if not.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:256</div></div>
-<div class="ttc" id="amc__fifo_8h_html_a96dad2eb5021c634a6082d44de1dacc7"><div class="ttname"><a href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a></div><div class="ttdeci">#define MC_FIFO_EMPTY(ctrl)</div><div class="ttdoc">This macro returns 1 if FIFO is empty or 0 if not.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:222</div></div>
-<div class="ttc" id="amc__fifo_8h_html_ac31899fe33c496afce6f680e7b4eff65"><div class="ttname"><a href="mc__fifo_8h.html#ac31899fe33c496afce6f680e7b4eff65">MC_FIFO_INIT</a></div><div class="ttdeci">#define MC_FIFO_INIT(ctrl, size)</div><div class="ttdoc">Initialise FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:328</div></div>
-<div class="ttc" id="amc__fifo_8h_html_ad0182cb0c61881005400b23a08cb6d74"><div class="ttname"><a href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a></div><div class="ttdeci">#define MC_FIFO_INC_IN(ctrl)</div><div class="ttdoc">This macro have to be execute when data was written to the FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:267</div></div>
-<div class="ttc" id="astructMcFifoCtrl__s_html"><div class="ttname"><a href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></div><div class="ttdoc">This structure holds administration variables of a FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:106</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a193a0d0f898fb9bdd59ba1ab69674db8"><div class="ttname"><a href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr</a></div><div class="ttdeci">void * McFifoDataInPtr(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a2adc4f998278252ff71805d70ce43fa2"><div class="ttname"><a href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr</a></div><div class="ttdeci">void * McFifoDataOutPtr(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a5aa9c3313d6a17832a0935cbfc3a04f6"><div class="ttname"><a href="mc__fifo_8h.html#a5aa9c3313d6a17832a0935cbfc3a04f6">McFifoIncIn</a></div><div class="ttdeci">void McFifoIncIn(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a864245a253a110c78ddc051f22f7adae"><div class="ttname"><a href="mc__fifo_8h.html#a864245a253a110c78ddc051f22f7adae">McFifoIsFull</a></div><div class="ttdeci">bool_t McFifoIsFull(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_aa9bb3042a46223bc016febe05b93d433"><div class="ttname"><a href="mc__fifo_8h.html#aa9bb3042a46223bc016febe05b93d433">McFifoIsEmpty</a></div><div class="ttdeci">bool_t McFifoIsEmpty(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_ad0d9bbbf871f1b9a43ffa1cbad3dac9d"><div class="ttname"><a href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit</a></div><div class="ttdeci">void McFifoInit(McFifoCtrl_ts *ptsFifoV, void *pvdDataV, uint32_t ulDataSizeV, uint32_t ulFifoSizeV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_ad37731ee4337524feb6cff12781d3905"><div class="ttname"><a href="mc__fifo_8h.html#ad37731ee4337524feb6cff12781d3905">McFifoIncOut</a></div><div class="ttdeci">void McFifoIncOut(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="astructMcFifoCtrl__s_html"><div class="ttname"><a href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></div><div class="ttdef"><b>Definition:</b> mc_fifo.h:92</div></div>
 </div><!-- fragment --><p><br  />
  <br  />
  <br  />
@@ -377,7 +385,7 @@ $(document).ready(function(){initNavTree('page_8ex_nmt.html',''); initResizable(
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

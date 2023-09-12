@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -107,22 +107,12 @@ $(document).ready(function(){initNavTree('mc__fifo_8h.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">mc_fifo.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The idea is that for FIFO implementation always the same API is used. This FIFO provide is completely implemented using macros and is optimised for embedded implementation. The special thing about implementing this FIFO is:</p><ul>
-<li>flexibility</li>
-<li>performance</li>
-<li>usability</li>
-</ul>
-<p>To do all this 3 macros are used to put an entry IN and also 3 macros are used to put an entry OUT.</p>
-<p>Steps to put an entry IN: 1) Make sure FIFO is not full, using <a class="el" href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1" title="This macro returns 1 if FIFO is full or 0 if not.">MC_FIFO_FULL</a> macro 2) Get pointer to the entry data, using <a class="el" href="mc__fifo_8h.html#a61adc7ea7307b280ad2b8421d7d50109" title="This macro returns pointer to next empty FIFO element.">MC_FIFO_DATA_IN_PTR</a> macro Now you can modify or copy new data to the pointed memory. 3) Increment number of FIFO entries when data update have been finished by using <a class="el" href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74" title="This macro have to be execute when data was written to the FIFO.">MC_FIFO_INC_IN</a> macro.</p>
-<dl class="section attention"><dt>Attention</dt><dd>Please ensure that the order of the calls 2 to 3 must always be observed.</dd></dl>
-<p>Steps to put an entry OUT: 1) Make sure FIFO is not empty, using #MC_FIFO_EMTPY macro 2) Get pointer to the entry data, using <a class="el" href="mc__fifo_8h.html#ad8333f7c0f986c78184764bd5a7e4166" title="This macro returns pointer to next FIFO out element.">MC_FIFO_DATA_OUT_PTR</a> macro Now you can modify or copy new data to the pointed memory. 3) Decrement number of FIFO entries when data have been processed by using <a class="el" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0" title="This macro have to be execute when data was read from the FIFO.">MC_FIFO_INC_OUT</a> macro.</p>
-<p>The advantage of this division is mainly in the embedded area. User may take data from FIFO write them to some transmission register. Sometime later when an transmit interrupt have been called, user can finally remove entry from FIFO using <a class="el" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0" title="This macro have to be execute when data was read from the FIFO.">MC_FIFO_INC_OUT</a> macro.</p>
-<dl class="section attention"><dt>Attention</dt><dd>Please ensure that you must check FIFO for full or empty depending on access, in other case data hold by FIFO may be overwritten. </dd></dl>
+<div class="textblock"><p>This FIFO implementation is using inline functions and is optimized for embedded implementation. The FIFO can store data elements of arbitrary size. </p>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for mc_fifo.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -130,11 +120,11 @@ $(document).ready(function(){initNavTree('mc__fifo_8h.html',''); initResizable()
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="mc__fifo_8h__incl.png" border="0" usemap="#amc__fifo_8h" alt=""/></div>
 <map name="amc__fifo_8h" id="amc__fifo_8h">
-<area shape="rect" title="Definitions and prototypes for FIFO implementation." alt="" coords="161,5,237,31"/>
-<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="146,79,253,104"/>
-<area shape="rect" title=" " alt="" coords="5,152,137,177"/>
-<area shape="rect" title=" " alt="" coords="162,152,237,177"/>
-<area shape="rect" title=" " alt="" coords="261,152,327,177"/>
+<area shape="rect" title="Definitions and prototypes for FIFO implementation." alt="" coords="160,5,235,31"/>
+<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="145,79,250,105"/>
+<area shape="rect" title=" " alt="" coords="5,153,137,178"/>
+<area shape="rect" title=" " alt="" coords="161,153,235,178"/>
+<area shape="rect" title=" " alt="" coords="259,153,323,178"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -143,281 +133,209 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a61adc7ea7307b280ad2b8421d7d50109"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a61adc7ea7307b280ad2b8421d7d50109">MC_FIFO_DATA_IN_PTR</a>(ctrl,  pdata)&#160;&#160;&#160;(pdata + ctrl.ulIndexIn)</td></tr>
-<tr class="separator:a61adc7ea7307b280ad2b8421d7d50109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8333f7c0f986c78184764bd5a7e4166"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ad8333f7c0f986c78184764bd5a7e4166">MC_FIFO_DATA_OUT_PTR</a>(ctrl,  pdata)&#160;&#160;&#160;(pdata + ctrl.ulIndexOut)</td></tr>
-<tr class="separator:ad8333f7c0f986c78184764bd5a7e4166"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96dad2eb5021c634a6082d44de1dacc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a>(ctrl)&#160;&#160;&#160;((ctrl.ulState == 0x0001) ? 1 : 0)</td></tr>
-<tr class="separator:a96dad2eb5021c634a6082d44de1dacc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c30e1126af099f3379dad26694dc2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a>(ctrl)&#160;&#160;&#160;((ctrl.ulState == 0x0002) ? 1 : 0)</td></tr>
-<tr class="separator:a3c30e1126af099f3379dad26694dc2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0182cb0c61881005400b23a08cb6d74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a>(ctrl)</td></tr>
-<tr class="separator:ad0182cb0c61881005400b23a08cb6d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18729b62897b8af08bd5cf5616a318c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a>(ctrl)</td></tr>
-<tr class="separator:a18729b62897b8af08bd5cf5616a318c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac31899fe33c496afce6f680e7b4eff65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ac31899fe33c496afce6f680e7b4eff65">MC_FIFO_INIT</a>(ctrl,  size)</td></tr>
-<tr class="separator:ac31899fe33c496afce6f680e7b4eff65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a193a0d0f898fb9bdd59ba1ab69674db8"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:a193a0d0f898fb9bdd59ba1ab69674db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2adc4f998278252ff71805d70ce43fa2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:a2adc4f998278252ff71805d70ce43fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae70b743e731c4f95f5f1a63f860ff531"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ae70b743e731c4f95f5f1a63f860ff531">McFifoFree</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:ae70b743e731c4f95f5f1a63f860ff531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa9c3313d6a17832a0935cbfc3a04f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a5aa9c3313d6a17832a0935cbfc3a04f6">McFifoIncIn</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:a5aa9c3313d6a17832a0935cbfc3a04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37731ee4337524feb6cff12781d3905"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ad37731ee4337524feb6cff12781d3905">McFifoIncOut</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:ad37731ee4337524feb6cff12781d3905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d9bbbf871f1b9a43ffa1cbad3dac9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV, void *pvdDataV, uint32_t ulDataSizeV, uint32_t ulFifoSizeV)</td></tr>
+<tr class="separator:ad0d9bbbf871f1b9a43ffa1cbad3dac9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bb3042a46223bc016febe05b93d433"><td class="memItemLeft" align="right" valign="top">bool_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#aa9bb3042a46223bc016febe05b93d433">McFifoIsEmpty</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:aa9bb3042a46223bc016febe05b93d433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864245a253a110c78ddc051f22f7adae"><td class="memItemLeft" align="right" valign="top">bool_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a864245a253a110c78ddc051f22f7adae">McFifoIsFull</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:a864245a253a110c78ddc051f22f7adae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208486b6536ee0092a431f793c28a18d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mc__fifo_8h.html#a208486b6536ee0092a431f793c28a18d">McFifoPending</a> (<a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *ptsFifoV)</td></tr>
+<tr class="separator:a208486b6536ee0092a431f793c28a18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a61adc7ea7307b280ad2b8421d7d50109" name="a61adc7ea7307b280ad2b8421d7d50109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61adc7ea7307b280ad2b8421d7d50109">&#9670;&#160;</a></span>MC_FIFO_DATA_IN_PTR</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a193a0d0f898fb9bdd59ba1ab69674db8" name="a193a0d0f898fb9bdd59ba1ab69674db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193a0d0f898fb9bdd59ba1ab69674db8">&#9670;&#160;</a></span>McFifoDataInPtr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MC_FIFO_DATA_IN_PTR</td>
+          <td class="memname">void * McFifoDataInPtr </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl, </td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to next free data element inside FIFO for push operation </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr()</a></dd></dl>
+<p>The function returns a pointer to the next free data element inside the FIFO defined by <em>ptsFifoV</em> for push operation. </p>
+
+</div>
+</div>
+<a id="a2adc4f998278252ff71805d70ce43fa2" name="a2adc4f998278252ff71805d70ce43fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2adc4f998278252ff71805d70ce43fa2">&#9670;&#160;</a></span>McFifoDataOutPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * McFifoDataOutPtr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to first data element inside FIFO for pop operation </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr()</a></dd></dl>
+<p>The function returns a pointer to the first data element inside the FIFO defined by <em>ptsFifoV</em> for pop operation. </p>
+
+</div>
+</div>
+<a id="ae70b743e731c4f95f5f1a63f860ff531" name="ae70b743e731c4f95f5f1a63f860ff531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae70b743e731c4f95f5f1a63f860ff531">&#9670;&#160;</a></span>McFifoFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t McFifoFree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function returns the number of data elements which can be stored inside the FIFO defined by <em>ptsFifoV</em>. </p>
+
+</div>
+</div>
+<a id="a5aa9c3313d6a17832a0935cbfc3a04f6" name="a5aa9c3313d6a17832a0935cbfc3a04f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa9c3313d6a17832a0935cbfc3a04f6">&#9670;&#160;</a></span>McFifoIncIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void McFifoIncIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function increments the pointer for the input data element (push operation) inside the FIFO defined by <em>ptsFifoV</em>. This operation is done after <a class="el" href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr()</a> has been called.</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a>    tsDataFifoS;</div>
+<div class="line">uint32_t                ulDataElementT;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="mc__fifo_8h.html#a864245a253a110c78ddc051f22f7adae">McFifoIsFull</a>(&amp;tsDataFifoS) == <span class="keyword">false</span>)</div>
+<div class="line">{</div>
+<div class="line">   memcpy(<a class="code hl_function" href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr</a>(&amp;tsDataFifoS), &amp;ulDataElementT, <span class="keyword">sizeof</span>(ulDataElementT));</div>
+<div class="line">   <a class="code hl_function" href="mc__fifo_8h.html#a5aa9c3313d6a17832a0935cbfc3a04f6">McFifoIncIn</a>(&amp;tsDataFifoS);</div>
+<div class="line">}</div>
+<div class="ttc" id="amc__fifo_8h_html_a193a0d0f898fb9bdd59ba1ab69674db8"><div class="ttname"><a href="mc__fifo_8h.html#a193a0d0f898fb9bdd59ba1ab69674db8">McFifoDataInPtr</a></div><div class="ttdeci">void * McFifoDataInPtr(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a5aa9c3313d6a17832a0935cbfc3a04f6"><div class="ttname"><a href="mc__fifo_8h.html#a5aa9c3313d6a17832a0935cbfc3a04f6">McFifoIncIn</a></div><div class="ttdeci">void McFifoIncIn(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_a864245a253a110c78ddc051f22f7adae"><div class="ttname"><a href="mc__fifo_8h.html#a864245a253a110c78ddc051f22f7adae">McFifoIsFull</a></div><div class="ttdeci">bool_t McFifoIsFull(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="astructMcFifoCtrl__s_html"><div class="ttname"><a href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></div><div class="ttdef"><b>Definition:</b> mc_fifo.h:92</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ad37731ee4337524feb6cff12781d3905" name="ad37731ee4337524feb6cff12781d3905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad37731ee4337524feb6cff12781d3905">&#9670;&#160;</a></span>McFifoIncOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void McFifoIncOut </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function decrements the pointer for the output data element (pop operation) inside the FIFO defined by <em>ptsFifoV</em>. This operation is done after <a class="el" href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr()</a> has been called.</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a>    tsDataFifoS;</div>
+<div class="line">uint32_t                ulDataElementT;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="mc__fifo_8h.html#aa9bb3042a46223bc016febe05b93d433">McFifoIsEmpty</a>(&amp;tsDataFifoS) == <span class="keyword">false</span>)</div>
+<div class="line">{</div>
+<div class="line">   memcpy(&amp;ulDataElementT, <a class="code hl_function" href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr</a>(&amp;tsDataFifoS), <span class="keyword">sizeof</span>(ulDataElementT));</div>
+<div class="line">   <a class="code hl_function" href="mc__fifo_8h.html#ad37731ee4337524feb6cff12781d3905">McFifoIncOut</a>(&amp;tsDataFifoS);</div>
+<div class="line">}</div>
+<div class="ttc" id="amc__fifo_8h_html_a2adc4f998278252ff71805d70ce43fa2"><div class="ttname"><a href="mc__fifo_8h.html#a2adc4f998278252ff71805d70ce43fa2">McFifoDataOutPtr</a></div><div class="ttdeci">void * McFifoDataOutPtr(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_aa9bb3042a46223bc016febe05b93d433"><div class="ttname"><a href="mc__fifo_8h.html#aa9bb3042a46223bc016febe05b93d433">McFifoIsEmpty</a></div><div class="ttdeci">bool_t McFifoIsEmpty(McFifoCtrl_ts *ptsFifoV)</div></div>
+<div class="ttc" id="amc__fifo_8h_html_ad37731ee4337524feb6cff12781d3905"><div class="ttname"><a href="mc__fifo_8h.html#ad37731ee4337524feb6cff12781d3905">McFifoIncOut</a></div><div class="ttdeci">void McFifoIncOut(McFifoCtrl_ts *ptsFifoV)</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ad0d9bbbf871f1b9a43ffa1cbad3dac9d" name="ad0d9bbbf871f1b9a43ffa1cbad3dac9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">&#9670;&#160;</a></span>McFifoInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void McFifoInit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">pdata&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(pdata + ctrl.ulIndexIn)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This macro returns pointer to next empty FIFO element. </p>
-<p>Value ctrl have to be a (static) variable from type of McFifoCtrl_ts structure. Value pdata is pointer to the FIFO array.</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> tsFifoCntrlS;</div>
-<div class="line"><span class="keyword">static</span> uint32_t atsFifoDataS[NUMBER_OF_FIFO_ENTRIES];</div>
-<div class="line"> </div>
-<div class="line">uint32_t * pulFifoInEntryT;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> (!(<a class="code hl_define" href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a>(tsFifoCntrlS)))</div>
-<div class="line">{</div>
-<div class="line">   pulFifoInEntryT = <a class="code hl_define" href="mc__fifo_8h.html#a61adc7ea7307b280ad2b8421d7d50109">MC_FIFO_DATA_IN_PTR</a>(tsFifoCntrlS,atsFifoDataS);</div>
-<div class="line"> </div>
-<div class="line">   <span class="comment">// set new data of entry</span></div>
-<div class="line">   pulFifoInEntryT = 0x12345678;</div>
-<div class="line"> </div>
-<div class="line">   <a class="code hl_define" href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a>(tsFifoCntrlS);</div>
-<div class="line">}</div>
-<div class="ttc" id="amc__fifo_8h_html_a3c30e1126af099f3379dad26694dc2a1"><div class="ttname"><a href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a></div><div class="ttdeci">#define MC_FIFO_FULL(ctrl)</div><div class="ttdoc">This macro returns 1 if FIFO is full or 0 if not.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:256</div></div>
-<div class="ttc" id="amc__fifo_8h_html_a61adc7ea7307b280ad2b8421d7d50109"><div class="ttname"><a href="mc__fifo_8h.html#a61adc7ea7307b280ad2b8421d7d50109">MC_FIFO_DATA_IN_PTR</a></div><div class="ttdeci">#define MC_FIFO_DATA_IN_PTR(ctrl, pdata)</div><div class="ttdoc">This macro returns pointer to next empty FIFO element.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:159</div></div>
-<div class="ttc" id="amc__fifo_8h_html_ad0182cb0c61881005400b23a08cb6d74"><div class="ttname"><a href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a></div><div class="ttdeci">#define MC_FIFO_INC_IN(ctrl)</div><div class="ttdoc">This macro have to be execute when data was written to the FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:267</div></div>
-<div class="ttc" id="astructMcFifoCtrl__s_html"><div class="ttname"><a href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></div><div class="ttdoc">This structure holds administration variables of a FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:106</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ad8333f7c0f986c78184764bd5a7e4166" name="ad8333f7c0f986c78184764bd5a7e4166"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8333f7c0f986c78184764bd5a7e4166">&#9670;&#160;</a></span>MC_FIFO_DATA_OUT_PTR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_DATA_OUT_PTR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl, </td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pvdDataV</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">pdata&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(pdata + ctrl.ulIndexOut)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This macro returns pointer to next FIFO out element. </p>
-<p>Value ctrl have to be a (static) variable from type of McFifoCtrl_ts structure. Value pdata is pointer to the FIFO array.</p>
-<div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> tsFifoCntrlS;</div>
-<div class="line"><span class="keyword">static</span> uint32_t atsFifoDataS[NUMBER_OF_FIFO_ENTRIES];</div>
-<div class="line"> </div>
-<div class="line">uint32_t * pulFifoOutEntryT;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> (!(<a class="code hl_define" href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a>(tsFifoCntrlS)))</div>
-<div class="line">{</div>
-<div class="line">   pulFifoOutEntryT = <a class="code hl_define" href="mc__fifo_8h.html#ad8333f7c0f986c78184764bd5a7e4166">MC_FIFO_DATA_OUT_PTR</a>(tsFifoCntrlS,atsFifoDataS);</div>
-<div class="line"> </div>
-<div class="line">   <span class="comment">// handle pulFifoOutEntryT data from FIFO</span></div>
-<div class="line">   ...</div>
-<div class="line"> </div>
-<div class="line">   <a class="code hl_define" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a>(tsFifoCntrlS);</div>
-<div class="line">}</div>
-<div class="ttc" id="amc__fifo_8h_html_a18729b62897b8af08bd5cf5616a318c0"><div class="ttname"><a href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a></div><div class="ttdeci">#define MC_FIFO_INC_OUT(ctrl)</div><div class="ttdoc">This macro have to be execute when data was read from the FIFO.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:289</div></div>
-<div class="ttc" id="amc__fifo_8h_html_a96dad2eb5021c634a6082d44de1dacc7"><div class="ttname"><a href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a></div><div class="ttdeci">#define MC_FIFO_EMPTY(ctrl)</div><div class="ttdoc">This macro returns 1 if FIFO is empty or 0 if not.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:222</div></div>
-<div class="ttc" id="amc__fifo_8h_html_ad8333f7c0f986c78184764bd5a7e4166"><div class="ttname"><a href="mc__fifo_8h.html#ad8333f7c0f986c78184764bd5a7e4166">MC_FIFO_DATA_OUT_PTR</a></div><div class="ttdeci">#define MC_FIFO_DATA_OUT_PTR(ctrl, pdata)</div><div class="ttdoc">This macro returns pointer to next FIFO out element.</div><div class="ttdef"><b>Definition:</b> mc_fifo.h:188</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a96dad2eb5021c634a6082d44de1dacc7" name="a96dad2eb5021c634a6082d44de1dacc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96dad2eb5021c634a6082d44de1dacc7">&#9670;&#160;</a></span>MC_FIFO_EMPTY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_EMPTY</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl</td><td>)</td>
-          <td>&#160;&#160;&#160;((ctrl.ulState == 0x0001) ? 1 : 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This macro returns 1 if FIFO is empty or 0 if not. </p>
-<p>Value x have to be a (static) variable from type of McFifoCtrl_ts structure. e.g : </p><div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> tsFifoCntrlS;</div>
-<div class="line"><span class="keyword">static</span> uint32_t atsFifoDataS[NUMBER_OF_FIFO_ENTRIES];</div>
-<div class="line"> </div>
-<div class="line">uint32_t * pulFifoOutEntryT;</div>
-<div class="line">...</div>
-<div class="line">if (!<a class="code hl_define" href="mc__fifo_8h.html#a96dad2eb5021c634a6082d44de1dacc7">MC_FIFO_EMPTY</a>(tsMcFifoCtrlS))</div>
-<div class="line">{</div>
-<div class="line">   <span class="comment">// access to next data of FIFO</span></div>
-<div class="line">   pulFifoOutEntryT = <a class="code hl_define" href="mc__fifo_8h.html#ad8333f7c0f986c78184764bd5a7e4166">MC_FIFO_DATA_OUT_PTR</a>(tsFifoCntrlS,atsFifoDataS);</div>
-<div class="line"> </div>
-<div class="line">   ...</div>
-<div class="line"> </div>
-<div class="line">   <a class="code hl_define" href="mc__fifo_8h.html#a18729b62897b8af08bd5cf5616a318c0">MC_FIFO_INC_OUT</a>(tsMcFifoCtrlS);</div>
-<div class="line">}</div>
-<div class="line"><span class="keywordflow">else</span></div>
-<div class="line">{</div>
-<div class="line">   <span class="keywordflow">return</span> CpErr_FIFO_EMPTY;</div>
-<div class="line">}</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a3c30e1126af099f3379dad26694dc2a1" name="a3c30e1126af099f3379dad26694dc2a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c30e1126af099f3379dad26694dc2a1">&#9670;&#160;</a></span>MC_FIFO_FULL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_FULL</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl</td><td>)</td>
-          <td>&#160;&#160;&#160;((ctrl.ulState == 0x0002) ? 1 : 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This macro returns 1 if FIFO is full or 0 if not. </p>
-<p>Value ctrl have to be a (static) variable from type of McFifoCtrl_ts structure. e.g : </p><div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> tsFifoCntrlS;</div>
-<div class="line"><span class="keyword">static</span> uint32_t atsFifoDataS[NUMBER_OF_FIFO_ENTRIES];</div>
-<div class="line"> </div>
-<div class="line">uint32_t * pulFifoInEntryT;</div>
-<div class="line">...</div>
-<div class="line">if (!<a class="code hl_define" href="mc__fifo_8h.html#a3c30e1126af099f3379dad26694dc2a1">MC_FIFO_FULL</a>(tsMcFifoCtrlS))</div>
-<div class="line">{</div>
-<div class="line">   <span class="comment">// access to data of FIFO</span></div>
-<div class="line">   pulFifoInEntryT = (uint32_t *) <a class="code hl_define" href="mc__fifo_8h.html#a61adc7ea7307b280ad2b8421d7d50109">MC_FIFO_DATA_IN_PTR</a>(tsFifoCntrlS,&amp;aulFifoDataS[0]);</div>
-<div class="line"> </div>
-<div class="line">   <span class="comment">// set new data</span></div>
-<div class="line">   *pulFifoInEntryT = 0x01234567;</div>
-<div class="line">   ...</div>
-<div class="line">   <a class="code hl_define" href="mc__fifo_8h.html#ad0182cb0c61881005400b23a08cb6d74">MC_FIFO_INC_IN</a>(tsMcFifoCtrlS);</div>
-<div class="line"> }</div>
-<div class="line"> <span class="keywordflow">else</span></div>
-<div class="line"> {</div>
-<div class="line">   <span class="keywordflow">return</span> CpErr_FIFO_FULL;</div>
-<div class="line"> }</div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ad0182cb0c61881005400b23a08cb6d74" name="ad0182cb0c61881005400b23a08cb6d74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0182cb0c61881005400b23a08cb6d74">&#9670;&#160;</a></span>MC_FIFO_INC_IN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_INC_IN</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">         <span class="keywordflow">do</span> {                                                        \</div>
-<div class="line">            ctrl.ulIndexIn++;                                        \</div>
-<div class="line">            if (ctrl.ulIndexIn &gt;= ctrl.ulIndexMax)                   \</div>
-<div class="line">            {                                                        \</div>
-<div class="line">               ctrl.ulIndexIn = 0;                                   \</div>
-<div class="line">            }                                                        \</div>
-<div class="line">            ctrl.ulState = 0x0000;                                   \</div>
-<div class="line">            if (ctrl.ulIndexIn == ctrl.ulIndexOut)                   \</div>
-<div class="line">            {                                                        \</div>
-<div class="line">               ctrl.ulState = 0x02;                                  \</div>
-<div class="line">            }                                                        \</div>
-<div class="line">         } <span class="keywordflow">while</span> (0)</div>
-</div><!-- fragment -->
-<p>This macro have to be execute when data was written to the FIFO. </p>
-<p>Value ctrl have to be a (static) variable from type of McFifoCtrl_ts structure. </p>
-
-</div>
-</div>
-<a id="a18729b62897b8af08bd5cf5616a318c0" name="a18729b62897b8af08bd5cf5616a318c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18729b62897b8af08bd5cf5616a318c0">&#9670;&#160;</a></span>MC_FIFO_INC_OUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_INC_OUT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">         <span class="keywordflow">do</span> {                                                        \</div>
-<div class="line">            ctrl.ulIndexOut++;                                       \</div>
-<div class="line">            if (ctrl.ulIndexOut &gt;= ctrl.ulIndexMax)                  \</div>
-<div class="line">            {                                                        \</div>
-<div class="line">               ctrl.ulIndexOut = 0;                                  \</div>
-<div class="line">            }                                                        \</div>
-<div class="line">            ctrl.ulState = 0x0000;                                   \</div>
-<div class="line">            if (ctrl.ulIndexIn == ctrl.ulIndexOut)                   \</div>
-<div class="line">            {                                                        \</div>
-<div class="line">               ctrl.ulState = 0x01;                                  \</div>
-<div class="line">            }                                                        \</div>
-<div class="line">         } <span class="keywordflow">while</span> (0)</div>
-</div><!-- fragment -->
-<p>This macro have to be execute when data was read from the FIFO. </p>
-<p>Value ctrl have to be a (static) variable from type of McFifoCtrl_ts structure. </p>
-
-</div>
-</div>
-<a id="ac31899fe33c496afce6f680e7b4eff65" name="ac31899fe33c496afce6f680e7b4eff65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac31899fe33c496afce6f680e7b4eff65">&#9670;&#160;</a></span>MC_FIFO_INIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MC_FIFO_INIT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ctrl, </td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ulDataSizeV</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">size&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ulFifoSizeV</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -426,24 +344,103 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">         <span class="keywordflow">do</span> {                                                        \</div>
-<div class="line">            ctrl.ulIndexIn  = 0;                                     \</div>
-<div class="line">            ctrl.ulIndexOut = 0;                                     \</div>
-<div class="line">            ctrl.ulIndexMax = size;                                  \</div>
-<div class="line">            ctrl.ulState    = 0x01;                                  \</div>
-<div class="line">         } <span class="keywordflow">while</span> (0)</div>
-</div><!-- fragment -->
-<p>Initialise FIFO. </p>
-<p>Value ctrl have to be a (static) variable from type of a McFifoCtrl_ts. Value size gives number of entries the FIFO contains.</p>
-<p>Here is an example for initialisation of FIFO: </p><div class="fragment"><div class="line">...</div>
-<div class="line"><span class="comment">// define example FIFO</span></div>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pvdDataV</td><td>Pointer to array of data elements </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ulDataSizeV</td><td>Size of one single data element in bytes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ulFifoSizeV</td><td>Maximum number of data elements in FIFO</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function initialises a FIFO defined by the control structure <em>ptsFifoV</em> with a maximum size of <em>ulFifoSizeV</em> data elements. The application must guarantee that the pointer <em>pvdDataV</em> points to an array of <em>ulFifoSizeV</em> data elements. The size in bytes of the arbitrary data element is defined by <em>ulDataSizeV</em>.</p>
+<p>Here is an example for initialisation of a FIFO: </p><div class="fragment"><div class="line">...</div>
 <div class="line">#define NUMBER_OF_FIFO_ENTRIES   20</div>
-<div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> tsMcFifoCtrlS;</div>
-<div class="line"><span class="keyword">static</span> uint32_t atsFifoDataS[NUMBER_OF_FIFO_ENTRIES];</div>
-<div class="line">...</div>
-<div class="line"><span class="comment">// initialise example FIFO</span></div>
-<div class="line">MC_FIFO_INIT(tsMcFifoCtrlS, NUMBER_OF_FIFO_ENTRIES);</div>
-</div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>It is important that NUMBER_OF_FIFO_ENTRIES value that was used for aulFifoDataS[] declaration is &gt;= as value that is used with <a class="el" href="mc__fifo_8h.html#ac31899fe33c496afce6f680e7b4eff65" title="Initialise FIFO.">MC_FIFO_INIT()</a>; </dd></dl>
+<div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a>    tsDataFifoS;</div>
+<div class="line"><span class="keyword">static</span> uint32_t         aulDataElementS[NUMBER_OF_FIFO_ENTRIES];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_function" href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit</a>(&amp;tsDataFifoS, &amp;aulDataElementS[0], <span class="keyword">sizeof</span>(uint32_t), NUMBER_OF_FIFO_ENTRIES);</div>
+<div class="ttc" id="amc__fifo_8h_html_ad0d9bbbf871f1b9a43ffa1cbad3dac9d"><div class="ttname"><a href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit</a></div><div class="ttdeci">void McFifoInit(McFifoCtrl_ts *ptsFifoV, void *pvdDataV, uint32_t ulDataSizeV, uint32_t ulFifoSizeV)</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aa9bb3042a46223bc016febe05b93d433" name="aa9bb3042a46223bc016febe05b93d433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bb3042a46223bc016febe05b93d433">&#9670;&#160;</a></span>McFifoIsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool_t McFifoIsEmpty </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if FIFO is empty, otherwise false </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="cp__fifo_8h.html#af3d8c14081728a50ba8db9e2749acb4d">CpFifoIsFull()</a></dd></dl>
+<p>The function returns <em>true</em> if the FIFO is empty, otherwise it will return <em>false</em>. </p>
+
+</div>
+</div>
+<a id="a864245a253a110c78ddc051f22f7adae" name="a864245a253a110c78ddc051f22f7adae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864245a253a110c78ddc051f22f7adae">&#9670;&#160;</a></span>McFifoIsFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool_t McFifoIsFull </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if FIFO is empty, otherwise false </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="cp__fifo_8h.html#af3d8c14081728a50ba8db9e2749acb4d">CpFifoIsFull()</a></dd></dl>
+<p>The function returns <em>true</em> if the FIFO is full, otherwise it will return <em>false</em>. </p>
+
+</div>
+</div>
+<a id="a208486b6536ee0092a431f793c28a18d" name="a208486b6536ee0092a431f793c28a18d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208486b6536ee0092a431f793c28a18d">&#9670;&#160;</a></span>McFifoPending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t McFifoPending </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_ts</a> *&#160;</td>
+          <td class="paramname"><em>ptsFifoV</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptsFifoV</td><td>Pointer to FIFO control structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of data elements inside FIFO</dd></dl>
+<p>The function returns the number of data elements which are stored inside the FIFO defined by <em>ptsFifoV</em>. </p>
 
 </div>
 </div>
@@ -454,7 +451,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_6887179d8fe86910a5bf36fb6ffab179.html">misc</a></li><li class="navelem"><a class="el" href="mc__fifo_8h.html">mc_fifo.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

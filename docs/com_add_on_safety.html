@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('com_add_on_safety.html',''); initResiz
 <li>Write CRC signature to SR device</li>
 <li>Write configuration valid to SR device</li>
 </ul>
-<p>Please note that all these steps have to be executed in Pre-Operational state of the SR device. All functions which access the object dictionary of the SR device via SDO (e.g. <a class="el" href="com__safety_8h.html#ace1c76b320fa9d047799f72868bba831">ComSafetyGetConfiguration()</a>, etc.) are non-blocking, hence the application has to wait until the SDO data transfer has finished before the next command can be executed. This can be achieved either by implementation of an application specific FSA using the <a class="el" href="com__sdo__cln_8h.html#a54298967b59967f26cb28abaa6ccf21e">ComSdoEventObjectReady()</a> event or by polling the status value of <a class="el" href="com__safety_8h.html#afb40c740c6c6e6e27bfa3775601b1ae8">ComSafetyGetSdoStatus()</a>.</p>
+<p>Please note that all these steps have to be executed in Pre-Operational state of the SR device. All functions which access the object dictionary of the SR device via SDO (e.g. <a class="el" href="com__safety_8h.html#ace1c76b320fa9d047799f72868bba831">ComSafetyGetConfiguration()</a>, etc.) are non-blocking, hence the application has to wait until the SDO data transfer has finished before the next command can be executed. This can be achieved either by implementation of an application specific FSA using the <a class="el" href="com__object_8h.html#a4dd28ba744c2946eeb804421ee3f49ba">ComObjectEventReady()</a> event or by polling the status value of <a class="el" href="com__safety_8h.html#afb40c740c6c6e6e27bfa3775601b1ae8">ComSafetyGetSdoStatus()</a>.</p>
 <p>The following code example depicts the configuration procedure.</p>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code hl_struct" href="structComSrdo__s.html">ComSrdo_ts</a>    tsSrdoS;      <span class="comment">// SRDO data structure</span></div>
 <div class="line">uint16_t             uwSignatureT; <span class="comment">// SRDO CRC signature</span></div>
@@ -218,7 +218,7 @@ $(document).ready(function(){initNavTree('com_add_on_safety.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -138,19 +138,19 @@ Board STM32G474E-EVAL</div></div>
 <h2>Debug build</h2>
 <div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>
-<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/toolchain-gcc-10.2.1.cmake -DCMAKE_BUILD_TYPE=Debug ..</div>
+<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/module/toolchain-gcc-10.2.1.cmake -DCMAKE_BUILD_TYPE=Debug ..</div>
 <div class="line">cmake --build .</div>
 </div><!-- fragment --><p>For generation of <b>CANopen FD</b> code use the following build steps: </p><div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>
-<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/toolchain-gcc-10.2.1.cmake -DCMAKE_BUILD_TYPE=Debug -DCAN_FD=1 ..</div>
+<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/module/toolchain-gcc-10.2.1.cmake -DCMAKE_BUILD_TYPE=Debug -DCAN_FD=1 ..</div>
 <div class="line">cmake --build .</div>
 </div><!-- fragment --><h2>Release build</h2>
 <div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>
-<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/toolchain-gcc-10.2.1.cmake ..</div>
+<div class="line">cmake -DCMAKE_TOOLCHAIN_FILE=../../../../../../cmake/module/toolchain-gcc-10.2.1.cmake ..</div>
 <div class="line">cmake --build .</div>
 </div><!-- fragment --><p>For compilation in Windows you have to execute following command:</p>
-<div class="fragment"><div class="line">cmake -G&quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=./../../../../../cmake/toolchain-gcc-10.2.1.cmake ..</div>
+<div class="fragment"><div class="line">cmake -G&quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=./../../../../../cmake/module//toolchain-gcc-10.2.1.cmake ..</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -158,7 +158,7 @@ Board STM32G474E-EVAL</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

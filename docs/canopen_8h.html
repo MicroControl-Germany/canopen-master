@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -120,11 +120,11 @@ $(document).ready(function(){initNavTree('canopen_8h.html',''); initResizable();
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="canopen_8h__incl.png" border="0" usemap="#acanopen_8h" alt=""/></div>
 <map name="acanopen_8h" id="acanopen_8h">
-<area shape="rect" title="General CANopen definitions ." alt="" coords="158,5,241,31"/>
-<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="146,79,253,104"/>
-<area shape="rect" title=" " alt="" coords="5,152,137,177"/>
-<area shape="rect" title=" " alt="" coords="162,152,237,177"/>
-<area shape="rect" title=" " alt="" coords="261,152,327,177"/>
+<area shape="rect" title="General CANopen definitions ." alt="" coords="157,5,238,31"/>
+<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="145,79,250,105"/>
+<area shape="rect" title=" " alt="" coords="5,153,137,178"/>
+<area shape="rect" title=" " alt="" coords="161,153,235,178"/>
+<area shape="rect" title=" " alt="" coords="259,153,323,178"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -229,29 +229,37 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a220bbcaf7ba6907f0612a476f4c00644"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644">CoDataType_e</a> { <br />
 &#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a7b58ac2e60802fb88d6e184c0ce250f0">eCO_DT_BOOLEAN</a> = 1
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd">eCO_DT_INTEGER8</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd">eCO_DT_INTEGER8</a> = 2
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4">eCO_DT_INTEGER16</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4">eCO_DT_INTEGER16</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd">eCO_DT_INTEGER32</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd">eCO_DT_INTEGER32</a> = 4
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38">eCO_DT_UNSIGNED8</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38">eCO_DT_UNSIGNED8</a> = 5
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa">eCO_DT_UNSIGNED16</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa">eCO_DT_UNSIGNED16</a> = 6
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2">eCO_DT_UNSIGNED32</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2">eCO_DT_UNSIGNED32</a> = 7
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed">eCO_DT_REAL32</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed">eCO_DT_REAL32</a> = 8
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9">eCO_DT_VISIBLE_STRING</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9">eCO_DT_VISIBLE_STRING</a> = 9
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea">eCO_DT_OCTET_STRING</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea">eCO_DT_OCTET_STRING</a> = 10
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e">eCO_DT_UNICODE_STRING</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e">eCO_DT_UNICODE_STRING</a> = 11
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39">eCO_DT_TIME_OF_DAY</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39">eCO_DT_TIME_OF_DAY</a> = 12
 , <br />
-&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723">eCO_DT_TIME_DIFFERENCE</a>
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723">eCO_DT_TIME_DIFFERENCE</a> = 13
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a717c59542c01008a71afd08e1bb5ae91">eCO_DT_DOMAIN</a> = 15
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644a54919012f469849036592bef771b090e">eCO_DT_REAL64</a> = 17
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644af81739f6d9a0e0df290a99befba6decf">eCO_DT_INTEGER64</a> = 21
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644acc6dd86a9d5fbe94f5e936f8f6d96f61">eCO_DT_UNSIGNED64</a> = 27
 <br />
  }</td></tr>
 <tr class="separator:a220bbcaf7ba6907f0612a476f4c00644"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,31 +334,39 @@ Enumerations</h2></td></tr>
 <p>Data Type definitions for objects in dictionary. </p>
 <p>Each object within the object dictionary has a specific data type. By this enumeration the possible data types are defined, which can be used in the SDO server. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a7b58ac2e60802fb88d6e184c0ce250f0" name="a220bbcaf7ba6907f0612a476f4c00644a7b58ac2e60802fb88d6e184c0ce250f0"></a>eCO_DT_BOOLEAN&#160;</td><td class="fielddoc"><p>data type: boolean value </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a7b58ac2e60802fb88d6e184c0ce250f0" name="a220bbcaf7ba6907f0612a476f4c00644a7b58ac2e60802fb88d6e184c0ce250f0"></a>eCO_DT_BOOLEAN&#160;</td><td class="fielddoc"><p>boolean value, this data type is deprecated in CANopen FD </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd" name="a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd"></a>eCO_DT_INTEGER8&#160;</td><td class="fielddoc"><p>data type: Signed Integer, 1 byte </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd" name="a220bbcaf7ba6907f0612a476f4c00644a1964b2708262486677c45d1316a7b9dd"></a>eCO_DT_INTEGER8&#160;</td><td class="fielddoc"><p>Signed Integer, 1 byte </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4" name="a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4"></a>eCO_DT_INTEGER16&#160;</td><td class="fielddoc"><p>data type: Signed Integer, 2 bytes </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4" name="a220bbcaf7ba6907f0612a476f4c00644af786fb4737fee441a04d4e02befd30e4"></a>eCO_DT_INTEGER16&#160;</td><td class="fielddoc"><p>Signed Integer, 2 bytes </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd" name="a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd"></a>eCO_DT_INTEGER32&#160;</td><td class="fielddoc"><p>data type: Signed Integer, 4 bytes </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd" name="a220bbcaf7ba6907f0612a476f4c00644a795af978de04b7776bd5fcc5a7c4a5dd"></a>eCO_DT_INTEGER32&#160;</td><td class="fielddoc"><p>Signed Integer, 4 bytes </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38" name="a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38"></a>eCO_DT_UNSIGNED8&#160;</td><td class="fielddoc"><p>data type: Unsigned Integer, 1 byte </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38" name="a220bbcaf7ba6907f0612a476f4c00644a84f83cb22e7eb77fd45917015e564f38"></a>eCO_DT_UNSIGNED8&#160;</td><td class="fielddoc"><p>Unsigned Integer, 1 byte </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa" name="a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa"></a>eCO_DT_UNSIGNED16&#160;</td><td class="fielddoc"><p>data type: Unsigned Integer, 2 bytes </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa" name="a220bbcaf7ba6907f0612a476f4c00644a66b091d28416e854c3ddd9749e4ddffa"></a>eCO_DT_UNSIGNED16&#160;</td><td class="fielddoc"><p>Unsigned Integer, 2 bytes </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2" name="a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2"></a>eCO_DT_UNSIGNED32&#160;</td><td class="fielddoc"><p>data type: Unsigned Integer, 4 bytes </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2" name="a220bbcaf7ba6907f0612a476f4c00644a9758fa6d412ffba727e400dca2554cb2"></a>eCO_DT_UNSIGNED32&#160;</td><td class="fielddoc"><p>Unsigned Integer, 4 bytes </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed" name="a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed"></a>eCO_DT_REAL32&#160;</td><td class="fielddoc"><p>data type: Float, 32 bit according to IEEE </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed" name="a220bbcaf7ba6907f0612a476f4c00644ac8dc32b95e066b250b8f80bb299396ed"></a>eCO_DT_REAL32&#160;</td><td class="fielddoc"><p>Float, 32 bit according to IEEE </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9" name="a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9"></a>eCO_DT_VISIBLE_STRING&#160;</td><td class="fielddoc"><p>data type: character string </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9" name="a220bbcaf7ba6907f0612a476f4c00644affaf645197ae8648c30fc023a4dbc3f9"></a>eCO_DT_VISIBLE_STRING&#160;</td><td class="fielddoc"><p>character string </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea" name="a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea"></a>eCO_DT_OCTET_STRING&#160;</td><td class="fielddoc"><p>data type: octet string </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea" name="a220bbcaf7ba6907f0612a476f4c00644ab3429d87dfc6781ba62def8398f33cea"></a>eCO_DT_OCTET_STRING&#160;</td><td class="fielddoc"><p>octet string </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e" name="a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e"></a>eCO_DT_UNICODE_STRING&#160;</td><td class="fielddoc"><p>data type: unicode string </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e" name="a220bbcaf7ba6907f0612a476f4c00644a56eaf06fe65d8cba8c6a018c6c29587e"></a>eCO_DT_UNICODE_STRING&#160;</td><td class="fielddoc"><p>unicode string </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39" name="a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39"></a>eCO_DT_TIME_OF_DAY&#160;</td><td class="fielddoc"><p>data type: time of day value </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39" name="a220bbcaf7ba6907f0612a476f4c00644a26ad219fb9db64b1e30fa8d0ad0d7b39"></a>eCO_DT_TIME_OF_DAY&#160;</td><td class="fielddoc"><p>time of day value </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723" name="a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723"></a>eCO_DT_TIME_DIFFERENCE&#160;</td><td class="fielddoc"><p>data type: time difference value </p>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723" name="a220bbcaf7ba6907f0612a476f4c00644a8983bbb37c85b532df218c3359e9c723"></a>eCO_DT_TIME_DIFFERENCE&#160;</td><td class="fielddoc"><p>time difference value </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a717c59542c01008a71afd08e1bb5ae91" name="a220bbcaf7ba6907f0612a476f4c00644a717c59542c01008a71afd08e1bb5ae91"></a>eCO_DT_DOMAIN&#160;</td><td class="fielddoc"><p>binary data </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644a54919012f469849036592bef771b090e" name="a220bbcaf7ba6907f0612a476f4c00644a54919012f469849036592bef771b090e"></a>eCO_DT_REAL64&#160;</td><td class="fielddoc"><p>Double, 64 bit according to IEEE </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644af81739f6d9a0e0df290a99befba6decf" name="a220bbcaf7ba6907f0612a476f4c00644af81739f6d9a0e0df290a99befba6decf"></a>eCO_DT_INTEGER64&#160;</td><td class="fielddoc"><p>Signed Integer, 8 bytes </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a220bbcaf7ba6907f0612a476f4c00644acc6dd86a9d5fbe94f5e936f8f6d96f61" name="a220bbcaf7ba6907f0612a476f4c00644acc6dd86a9d5fbe94f5e936f8f6d96f61"></a>eCO_DT_UNSIGNED64&#160;</td><td class="fielddoc"><p>Unsigned Integer, 8 bytes </p>
 </td></tr>
 </table>
 
@@ -592,7 +608,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="canopen_8h.html">canopen.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

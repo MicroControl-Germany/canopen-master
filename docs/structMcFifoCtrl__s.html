@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('structMcFifoCtrl__s.html',''); initRes
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Opposite to this structure FIFO macros can be used to manage the FIFO access. </p>
+<div class="textblock"><p>This structure controls the FIFO, it is initialised by <a class="el" href="mc__fifo_8h.html#ad0d9bbbf871f1b9a43ffa1cbad3dac9d">McFifoInit()</a>. </p>
 </div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for McFifoCtrl_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('structMcFifoCtrl__s.html',''); initRes
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="structMcFifoCtrl__s__coll__graph.png" border="0" usemap="#aMcFifoCtrl__s_coll__map" alt="Collaboration graph"/></div>
 <map name="aMcFifoCtrl__s_coll__map" id="aMcFifoCtrl__s_coll__map">
-<area shape="rect" title="This structure holds administration variables of a FIFO." alt="" coords="5,5,107,127"/>
+<area shape="rect" title=" " alt="" coords="5,5,106,159"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -131,10 +131,42 @@ Data Fields</h2></td></tr>
 <tr class="separator:ae4b903c7402eba68e898b76d1afe5c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f038fe58e7bf97fa66e3f14c658fd2d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMcFifoCtrl__s.html#a4f038fe58e7bf97fa66e3f14c658fd2d">ulIndexMax</a></td></tr>
 <tr class="separator:a4f038fe58e7bf97fa66e3f14c658fd2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14dcac48db29a69cc3994fb268095b34"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMcFifoCtrl__s.html#a14dcac48db29a69cc3994fb268095b34">ulState</a></td></tr>
-<tr class="separator:a14dcac48db29a69cc3994fb268095b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a304541c2d88f13397633e1e3ce3dfcfa"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMcFifoCtrl__s.html#a304541c2d88f13397633e1e3ce3dfcfa">ulDataSize</a></td></tr>
+<tr class="separator:a304541c2d88f13397633e1e3ce3dfcfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1f7f8445f2e90dfad251a57fa811a4"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMcFifoCtrl__s.html#aea1f7f8445f2e90dfad251a57fa811a4">pvdData</a></td></tr>
+<tr class="separator:aea1f7f8445f2e90dfad251a57fa811a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
+<a id="aea1f7f8445f2e90dfad251a57fa811a4" name="aea1f7f8445f2e90dfad251a57fa811a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea1f7f8445f2e90dfad251a57fa811a4">&#9670;&#160;</a></span>pvdData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* McFifoCtrl_s::pvdData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to data element </p>
+
+</div>
+</div>
+<a id="a304541c2d88f13397633e1e3ce3dfcfa" name="a304541c2d88f13397633e1e3ce3dfcfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a304541c2d88f13397633e1e3ce3dfcfa">&#9670;&#160;</a></span>ulDataSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t McFifoCtrl_s::ulDataSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Size of one data element </p>
+
+</div>
+</div>
 <a id="a461b04182a95097f3d37cfd61e36a969" name="a461b04182a95097f3d37cfd61e36a969"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a461b04182a95097f3d37cfd61e36a969">&#9670;&#160;</a></span>ulIndexIn</h2>
 
@@ -161,7 +193,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maximal number of FIFO entries. </p>
+<p>Maximum number of FIFO entries </p>
 
 </div>
 </div>
@@ -180,21 +212,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a14dcac48db29a69cc3994fb268095b34" name="a14dcac48db29a69cc3994fb268095b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14dcac48db29a69cc3994fb268095b34">&#9670;&#160;</a></span>ulState</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t McFifoCtrl_s::ulState</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Status of FIFO full or empty 0x01: FIFO is empty 0x02: FIFO is full </p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.9.1-->
@@ -202,7 +219,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structMcFifoCtrl__s.html">McFifoCtrl_s</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>

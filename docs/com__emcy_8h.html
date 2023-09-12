@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen (FD) Master Documentation</div>
-   <div id="projectnumber">Version 6.04.02</div>
+   <div id="projectnumber">Version 6.06.00</div>
   </td>
  </tr>
  </tbody>
@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('com__emcy_8h.html',''); initResizable(
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Clear CAN frame structure, the frame format does not matter here</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      CpMsgInit(&amp;tsEmcyMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
+<div class="line">      <a class="code hl_function" href="cp__msg_8h.html#a26324d9c511e7ee8815f86aa6dbe3d07">CpMsgInit</a>(&amp;tsEmcyMessageT, <a class="code hl_define" href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a>);</div>
 <div class="line">      <a class="code hl_function" href="com__emcy_8h.html#a81b00d5274307672859e90ab66b4596a">ComEmcyConsQueueFetch</a>(ubNetV, &amp;tsEmcyMessageT);</div>
 <div class="line">      uwEmcyConsCountT--;</div>
 <div class="line"> </div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('com__emcy_8h.html',''); initResizable(
 <div class="line">      <span class="comment">//-------------------------------------------------------------------------------------------</span></div>
 <div class="line">      <span class="comment">// Do something with the EMCY using the identifier of 082h.</span></div>
 <div class="line">      <span class="comment">//</span></div>
-<div class="line">      <span class="keywordflow">if</span> (CpMsgGetIdentifier(&amp;tsEmcyMessageT) == 0x082)</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code hl_function" href="cp__msg_8h.html#ade1383c687076fd3c034a43fe30d71a7">CpMsgGetIdentifier</a>(&amp;tsEmcyMessageT) == 0x082)</div>
 <div class="line">      {</div>
 <div class="line"> </div>
 <div class="line">      }</div>
@@ -156,6 +156,8 @@ $(document).ready(function(){initNavTree('com__emcy_8h.html',''); initResizable(
 <div class="ttc" id="acom__emcy_8h_html_a3fde376d32e510683fdbf015463bc041"><div class="ttname"><a href="com__emcy_8h.html#a3fde376d32e510683fdbf015463bc041">ComEmcyConsQueueCount</a></div><div class="ttdeci">ComStatus_tv ComEmcyConsQueueCount(uint8_t ubNetV, uint16_t *puwCountV)</div></div>
 <div class="ttc" id="acom__emcy_8h_html_a81b00d5274307672859e90ab66b4596a"><div class="ttname"><a href="com__emcy_8h.html#a81b00d5274307672859e90ab66b4596a">ComEmcyConsQueueFetch</a></div><div class="ttdeci">ComStatus_tv ComEmcyConsQueueFetch(uint8_t ubNetV, CpCanMsg_ts *ptsCanMsgV)</div></div>
 <div class="ttc" id="acom__emcy_8h_html_aa175428aad7d691fa5b2c76b25d8b769"><div class="ttname"><a href="com__emcy_8h.html#aa175428aad7d691fa5b2c76b25d8b769">ComEmcyConsEventReceive</a></div><div class="ttdeci">void ComEmcyConsEventReceive(uint8_t ubNetV, uint8_t ubNodeIdV)</div></div>
+<div class="ttc" id="acp__msg_8h_html_a26324d9c511e7ee8815f86aa6dbe3d07"><div class="ttname"><a href="cp__msg_8h.html#a26324d9c511e7ee8815f86aa6dbe3d07">CpMsgInit</a></div><div class="ttdeci">void CpMsgInit(CpCanMsg_ts *ptsCanMsgV, uint8_t ubFormatV)</div><div class="ttdoc">Initialise message structure.</div></div>
+<div class="ttc" id="acp__msg_8h_html_ade1383c687076fd3c034a43fe30d71a7"><div class="ttname"><a href="cp__msg_8h.html#ade1383c687076fd3c034a43fe30d71a7">CpMsgGetIdentifier</a></div><div class="ttdeci">uint32_t CpMsgGetIdentifier(const CpCanMsg_ts *ptsCanMsgV)</div><div class="ttdoc">Get Identifier Value.</div></div>
 <div class="ttc" id="agroup__CP__MSG__CTRL_html_ga048baffc0f9875ee387bf4ad151d1f34"><div class="ttname"><a href="group__CP__MSG__CTRL.html#ga048baffc0f9875ee387bf4ad151d1f34">CP_MSG_FORMAT_CBFF</a></div><div class="ttdeci">#define CP_MSG_FORMAT_CBFF</div><div class="ttdef"><b>Definition:</b> canpie.h:415</div></div>
 <div class="ttc" id="astructCpCanMsg__s_html"><div class="ttname"><a href="structCpCanMsg__s.html">CpCanMsg_s</a></div><div class="ttdoc">CAN message structure.</div><div class="ttdef"><b>Definition:</b> canpie.h:1005</div></div>
 </div><!-- fragment --></div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -165,19 +167,19 @@ $(document).ready(function(){initNavTree('com__emcy_8h.html',''); initResizable(
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="com__emcy_8h__incl.png" border="0" usemap="#acom__emcy_8h" alt=""/></div>
 <map name="acom__emcy_8h" id="acom__emcy_8h">
-<area shape="rect" title="CANopen (FD) Master EMCY service ." alt="" coords="119,5,214,31"/>
-<area shape="rect" href="com__defs_8h.html" title="CANopen Master definitions ." alt="" coords="121,79,212,104"/>
-<area shape="rect" href="cp__core_8h.html" title="CANpie core functions ." alt="" coords="14,152,93,177"/>
-<area shape="rect" href="cp__msg_8h.html" title="CANpie message access" alt="" coords="102,225,181,251"/>
-<area shape="rect" href="canopen_8h.html" title="General CANopen definitions ." alt="" coords="205,225,288,251"/>
-<area shape="rect" href="com__conf_8h.html" title="CANopen Master stack configuration ." alt="" coords="229,152,320,177"/>
-<area shape="rect" href="cp__fifo_8h.html" title="CANpie FIFO functions ." alt="" coords="5,225,77,251"/>
-<area shape="rect" href="canpie_8h.html" title="CANpie constants, structures and enumerations" alt="" coords="94,299,165,324"/>
-<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="193,372,300,397"/>
-<area shape="rect" title=" " alt="" coords="68,372,169,397"/>
-<area shape="rect" title=" " alt="" coords="53,445,185,471"/>
-<area shape="rect" title=" " alt="" coords="209,445,284,471"/>
-<area shape="rect" title=" " alt="" coords="309,445,374,471"/>
+<area shape="rect" title="CANopen (FD) Master EMCY service ." alt="" coords="118,5,212,31"/>
+<area shape="rect" href="com__defs_8h.html" title="CANopen Master definitions ." alt="" coords="120,79,210,105"/>
+<area shape="rect" href="cp__core_8h.html" title="CANpie core functions ." alt="" coords="14,153,92,178"/>
+<area shape="rect" href="cp__msg_8h.html" title="CANpie message access" alt="" coords="101,226,179,252"/>
+<area shape="rect" href="canopen_8h.html" title="General CANopen definitions ." alt="" coords="203,226,284,252"/>
+<area shape="rect" href="com__conf_8h.html" title="CANopen Master stack configuration ." alt="" coords="228,153,318,178"/>
+<area shape="rect" href="cp__fifo_8h.html" title="CANpie FIFO functions ." alt="" coords="5,226,77,252"/>
+<area shape="rect" href="canpie_8h.html" title="CANpie constants, structures and enumerations" alt="" coords="93,300,163,326"/>
+<area shape="rect" href="mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="191,374,296,399"/>
+<area shape="rect" title=" " alt="" coords="67,374,167,399"/>
+<area shape="rect" title=" " alt="" coords="51,447,183,473"/>
+<area shape="rect" title=" " alt="" coords="207,447,281,473"/>
+<area shape="rect" title=" " alt="" coords="305,447,369,473"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -933,7 +935,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="com__emcy_8h.html">com_emcy.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Sun Jul 30 2023 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Tue Sep 12 2023 </li>
   </ul>
 </div>
 </body>
