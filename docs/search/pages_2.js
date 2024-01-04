@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['demo_20application_0',['Demo application',['../com_example_main.html',1,'']]],
-  ['deprecated_20list_1',['Deprecated List',['../deprecated.html',1,'']]]
+  ['board_0',['board',['../com_ex_board_STM32G474E_EVAL.html',1,'STM32G474E-EVAL board'],['../com_ex_board_STM32H735G_DK.html',1,'STM32H735G-DK board'],['../com_ex_board_STM32U575I_EV.html',1,'STM32U575I-EV board']]],
+  ['boards_1',['Examples for evaluation boards',['../com_examples_boards.html',1,'']]]
 ];

@@ -30,9 +30,11 @@ var menudata={children:[
 {text:"Code Examples",url:"com_examples.html",children:[
 {text:"Initialization",url:"com_example_start.html"},
 {text:"PDO communication",url:"com_example_pdo_howto.html"},
+{text:"SDO / USDO communication",url:"com_example_sdo_howto.html"},
+{text:"EVAL boards",url:"com_examples_boards.html",children:[
 {text:"STM32G474E-EVAL board",url:"com_ex_board_STM32G474E_EVAL.html"},
 {text:"STM32H735G-DK board",url:"com_ex_board_STM32H735G_DK.html"},
-{text:"STM32U575-EV board",url:"com_ex_board_STM32U575I_EV.html"}]},
+{text:"STM32U575-EV board",url:"com_ex_board_STM32U575I_EV.html"}]}]},
 {text:"Template Files",url:"com_api_templates.html",children:[
 {text:"Stack configuration",url:"com__conf_8h.html#COM_CONF"},
 {text:"Demo application",url:"com_example_main.html"},
@@ -45,6 +47,7 @@ var menudata={children:[
 {text:"Definitions - CANopen",url:"canopen_8h.html#CANOPEN"},
 {text:"Definitions - Stack",url:"com__defs_8h.html#COM_DEFS"},
 {text:"Object dictionary",url:"com__dict_8h.html#COM_DICT"},
+{text:"Object support",url:"com__object_8h.html#COM_OBJECT"},
 {text:"EMCY service",url:"com__emcy_8h.html#COM_EMCY"},
 {text:"LED support",url:"com__led_8h.html#COM_LED"},
 {text:"LSS service",url:"com__lss_8h.html#COM_LSS"},
@@ -54,6 +57,7 @@ var menudata={children:[
 {text:"SDO service",url:"com__sdo__cln_8h.html#COM_SDO_CLN"},
 {text:"SYNC service",url:"com__sync_8h.html#COM_SYNC"},
 {text:"Timer support",url:"com__time_8h.html#COM_TIME"},
+{text:"USDO service",url:"com__usdo__cln_8h.html#COM_USDO_CLN"},
 {text:"Add-ons",url:"com_add_on_overview.html",children:[
 {text:"Safety",url:"com_add_on_safety.html"}]}]},
 {text:"CANpie FD",url:"com_api_canpie.html",children:[

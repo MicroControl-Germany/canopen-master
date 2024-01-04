@@ -24,16 +24,19 @@
 */
 var NAVTREE =
 [
-  [ "CANopen (FD) Master Protocol Stack", "index.html", [
+  [ "CANopen Master Protocol Stack", "index.html", [
     [ "Getting Started", null, [
       [ "First steps", "com_getting_started.html", null ],
       [ "Protocol Stack Overview", "com_api_overview.html", null ],
       [ "Code Examples", "com_examples.html", [
         [ "Initialization", "com_example_start.html", null ],
         [ "PDO communication", "com_example_pdo_howto.html", null ],
-        [ "STM32G474E-EVAL board", "com_ex_board_STM32G474E_EVAL.html", null ],
-        [ "STM32H735G-DK board", "com_ex_board_STM32H735G_DK.html", null ],
-        [ "STM32U575-EV board", "com_ex_board_STM32U575I_EV.html", null ]
+        [ "SDO / USDO communication", "com_example_sdo_howto.html", null ],
+        [ "EVAL boards", "com_examples_boards.html", [
+          [ "STM32G474E-EVAL board", "com_ex_board_STM32G474E_EVAL.html", null ],
+          [ "STM32H735G-DK board", "com_ex_board_STM32H735G_DK.html", null ],
+          [ "STM32U575-EV board", "com_ex_board_STM32U575I_EV.html", null ]
+        ] ]
       ] ],
       [ "Template Files", "com_api_templates.html", [
         [ "Stack configuration", "com__conf_8h.html#COM_CONF", null ],
@@ -49,6 +52,7 @@ var NAVTREE =
         [ "Definitions - CANopen", "canopen_8h.html#CANOPEN", null ],
         [ "Definitions - Stack", "com__defs_8h.html#COM_DEFS", null ],
         [ "Object dictionary", "com__dict_8h.html#COM_DICT", null ],
+        [ "Object support", "com__object_8h.html#COM_OBJECT", null ],
         [ "EMCY service", "com__emcy_8h.html#COM_EMCY", null ],
         [ "LED support", "com__led_8h.html#COM_LED", null ],
         [ "LSS service", "com__lss_8h.html#COM_LSS", null ],
@@ -58,6 +62,7 @@ var NAVTREE =
         [ "SDO service", "com__sdo__cln_8h.html#COM_SDO_CLN", null ],
         [ "SYNC service", "com__sync_8h.html#COM_SYNC", null ],
         [ "Timer support", "com__time_8h.html#COM_TIME", null ],
+        [ "USDO service", "com__usdo__cln_8h.html#COM_USDO_CLN", null ],
         [ "Add-ons", "com_add_on_overview.html", [
           [ "Safety", "com_add_on_safety.html", null ]
         ] ]
