@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('com__sync_8h.html',''); initResizable(
 <p>The generation of SYNC frames is disabled by default. The SYNC service identifier is set to 080h by default. The following code example shows how to change the default identifier to 181h and to generate SYNC messages with a cycle time of 10ms. </p><div class="fragment"><div class="line"><a class="code hl_function" href="com__sync_8h.html#a6aa229c8786ab4383b12fe480fb25348">ComSyncSetId</a>(<a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, 0x181);          <span class="comment">// set new identifier</span></div>
 <div class="line"><a class="code hl_function" href="com__sync_8h.html#a5fe8cb8c5800a9c8bed9cf402f82135d">ComSyncSetCycleTime</a>(<a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, 10000);   <span class="comment">// set 10 ms cycle time</span></div>
 <div class="line"><a class="code hl_function" href="com__sync_8h.html#aa3ba50abc6dd35e982fed6fdae86e0ee">ComSyncEnable</a>(<a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, 1);             <span class="comment">// start SYNC service</span></div>
-<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:746</div></div>
+<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:723</div></div>
 <div class="ttc" id="acom__sync_8h_html_a5fe8cb8c5800a9c8bed9cf402f82135d"><div class="ttname"><a href="com__sync_8h.html#a5fe8cb8c5800a9c8bed9cf402f82135d">ComSyncSetCycleTime</a></div><div class="ttdeci">ComStatus_tv ComSyncSetCycleTime(uint8_t ubNetV, uint32_t ulTimeV)</div></div>
 <div class="ttc" id="acom__sync_8h_html_a6aa229c8786ab4383b12fe480fb25348"><div class="ttname"><a href="com__sync_8h.html#a6aa229c8786ab4383b12fe480fb25348">ComSyncSetId</a></div><div class="ttdeci">ComStatus_tv ComSyncSetId(uint8_t ubNetV, uint32_t ulIdV)</div></div>
 <div class="ttc" id="acom__sync_8h_html_aa3ba50abc6dd35e982fed6fdae86e0ee"><div class="ttname"><a href="com__sync_8h.html#aa3ba50abc6dd35e982fed6fdae86e0ee">ComSyncEnable</a></div><div class="ttdeci">ComStatus_tv ComSyncEnable(uint8_t ubNetV, uint8_t ubEnableV)</div></div>
@@ -607,7 +607,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="com__sync_8h.html">com_sync.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>

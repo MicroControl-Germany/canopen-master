@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -225,6 +225,22 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:adb7493a7f8188d66460d16a329a83bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13ddf0a4499af57abc6f38f5eb9686fe" id="r_a13ddf0a4499af57abc6f38f5eb9686fe"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686fe">CoAttr_e</a> { <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686fea417ae069753ef0af12acd552c587d4ee">eCO_ATTR_ACC_RO</a> = 0x01
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686fea1269181e9b4bf9797577a06f7723a2f5">eCO_ATTR_ACC_WO</a> = 0x02
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686fea43abf65cb07dd49da6b2de1b0b0f2024">eCO_ATTR_ACC_RW</a> = 0x03
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686fea15557363b1a85880649d7f8e0e27f1fb">eCO_ATTR_ACC_CONST</a> = 0x05
+, <br />
+&#160;&#160;<b>eCO_ATTR_PDO_MAP</b> = 0x10
+, <br />
+&#160;&#160;<b>eCO_ATTR_RES_1</b> = 0x20
+, <br />
+&#160;&#160;<b>eCO_ATTR_RES_2</b> = 0x40
+, <br />
+&#160;&#160;<a class="el" href="canopen_8h.html#a13ddf0a4499af57abc6f38f5eb9686feab913afcde7a35000461abfbef4e2e07c">eCO_ATTR_FUNCTION</a> = 0x80
+<br />
  }</td></tr>
 <tr class="separator:a13ddf0a4499af57abc6f38f5eb9686fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a220bbcaf7ba6907f0612a476f4c00644" id="r_a220bbcaf7ba6907f0612a476f4c00644"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="canopen_8h.html#a220bbcaf7ba6907f0612a476f4c00644">CoDataType_e</a> { <br />
@@ -281,22 +297,25 @@ Enumerations</h2></td></tr>
 <p>Access Attributes for objects in dictionary. </p>
 <p>Each object within the object dictionary can have the following access attributes: </p><ul>
 <li>Read/Write </li>
-<li>Write Only </li>
-<li>Read Only </li>
-<li>Constant (value is Read Only)</li>
+<li>Write-only </li>
+<li>Read-only </li>
+<li>Constant (value is read-only, value in device does not change)</li>
 </ul>
-<p>The member <em>ubAttribute</em> of the structure <a class="el" href="structComDicEntry__s.html" title="CANopen Master - local object dictionary entry.">ComDicEntry_s</a> is used for that purpose. By this enumeration the possible attributes are defined. </p>
+<p>The member <em>ubAttribute</em> of the structure <a class="el" href="structComDicEntry__s.html" title="CANopen Master - local object dictionary entry.">ComDicEntry_s</a> is used for that purpose. This enumeration defines possible attribute values. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea1269181e9b4bf9797577a06f7723a2f5" name="a13ddf0a4499af57abc6f38f5eb9686fea1269181e9b4bf9797577a06f7723a2f5"></a>eCO_ATTR_ACC_WO&#160;</td><td class="fielddoc"><p>object is read-only <br  />
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea417ae069753ef0af12acd552c587d4ee" name="a13ddf0a4499af57abc6f38f5eb9686fea417ae069753ef0af12acd552c587d4ee"></a>eCO_ATTR_ACC_RO&#160;</td><td class="fielddoc"><p>object is read-only <br  />
  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea43abf65cb07dd49da6b2de1b0b0f2024" name="a13ddf0a4499af57abc6f38f5eb9686fea43abf65cb07dd49da6b2de1b0b0f2024"></a>eCO_ATTR_ACC_RW&#160;</td><td class="fielddoc"><p>object is write-only <br  />
+<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea1269181e9b4bf9797577a06f7723a2f5" name="a13ddf0a4499af57abc6f38f5eb9686fea1269181e9b4bf9797577a06f7723a2f5"></a>eCO_ATTR_ACC_WO&#160;</td><td class="fielddoc"><p>object is write-only <br  />
  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea15557363b1a85880649d7f8e0e27f1fb" name="a13ddf0a4499af57abc6f38f5eb9686fea15557363b1a85880649d7f8e0e27f1fb"></a>eCO_ATTR_ACC_CONST&#160;</td><td class="fielddoc"><p>object supports read-write access <br  />
+<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea43abf65cb07dd49da6b2de1b0b0f2024" name="a13ddf0a4499af57abc6f38f5eb9686fea43abf65cb07dd49da6b2de1b0b0f2024"></a>eCO_ATTR_ACC_RW&#160;</td><td class="fielddoc"><p>object supports read-write access <br  />
  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea3dc734858863982290145c055f1288d6" name="a13ddf0a4499af57abc6f38f5eb9686fea3dc734858863982290145c055f1288d6"></a>eCO_ATTR_PDO_MAP&#160;</td><td class="fielddoc"><p>object is constant <br  />
+<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686fea15557363b1a85880649d7f8e0e27f1fb" name="a13ddf0a4499af57abc6f38f5eb9686fea15557363b1a85880649d7f8e0e27f1fb"></a>eCO_ATTR_ACC_CONST&#160;</td><td class="fielddoc"><p>object is constant <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a13ddf0a4499af57abc6f38f5eb9686feab913afcde7a35000461abfbef4e2e07c" name="a13ddf0a4499af57abc6f38f5eb9686feab913afcde7a35000461abfbef4e2e07c"></a>eCO_ATTR_FUNCTION&#160;</td><td class="fielddoc"><p>function callback <br  />
  </p>
 </td></tr>
 </table>
@@ -592,7 +611,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="canopen_8h.html">canopen.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>

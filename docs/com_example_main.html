@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -134,18 +134,20 @@ $(document).ready(function(){initNavTree('com_example_main.html',''); initResiza
 <div class="line">   <span class="comment">//---------------------------------------------------------------------------------------------------</span></div>
 <div class="line">   <span class="comment">// Initialize the CANopen Master demo application, this is individual for every target</span></div>
 <div class="line">   <span class="comment">//</span></div>
-<div class="line">   <a class="code hl_function" href="com__demo__app_8h.html#a884b12ab9f3a56cec184290bf26976ce">ComDemoAppInitTarget</a>(TMPL_COM_USE_CAN_IF, ubNetV, &amp;tsComOptionsS[ubNetV]);</div>
+<div class="line">   <a class="code hl_function" href="com__demo__app_8h.html#a884b12ab9f3a56cec184290bf26976ce">ComDemoAppInitTarget</a>(tsComOptionsS[ubNetV].ubCanInterface, ubNetV, &amp;tsComOptionsS[ubNetV]);</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">   <span class="comment">//---------------------------------------------------------------------------------------------------</span></div>
-<div class="line">   <span class="comment">// Initialize the CANopen Master stack with address 127, bit-rate = 500K</span></div>
+<div class="line">   <span class="comment">// Initialize the CANopen Master stack with address 127 (default), bit-rate = 500K</span></div>
 <div class="line">   <span class="comment">//</span></div>
-<div class="line">   <a class="code hl_function" href="com__mgr_8h.html#a8c3583df39485235b950cd82158eba38">ComMgrInit</a>( TMPL_COM_USE_CAN_IF, ubNetV, <a class="code hl_enumvalue" href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487">eCP_BITRATE_500K</a>, 127, TMPL_COM_CONFIG);</div>
+<div class="line">   tvResultT = <a class="code hl_function" href="com__mgr_8h.html#a8c3583df39485235b950cd82158eba38">ComMgrInit</a>( tsComOptionsS[ubNetV].ubCanInterface, ubNetV, <a class="code hl_enumvalue" href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487">eCP_BITRATE_500K</a>, tsComOptionsS[ubNetV].ubNodeId, </div>
+<div class="line">               TMPL_COM_CONFIG);</div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">   <span class="comment">//---------------------------------------------------------------------------------------------------</span></div>
 <div class="line">   <span class="comment">// add an individual object dictionary for this channel</span></div>
 <div class="line">   <span class="comment">//</span></div>
-<div class="line">   <a class="code hl_function" href="com__dict_8h.html#aa1d8541a614c6d7c7d3bad60d0d7cc63">ComDictAddList</a>(ubNetV, &amp;<a class="code hl_variable" href="com__dict__master_8h.html#a3edb9f181eb5676a77dfd630377b563f">atsComDictMasterTableG</a>[0]);</div>
+<div class="line">   tvResultT = <a class="code hl_function" href="com__dict_8h.html#aa1d8541a614c6d7c7d3bad60d0d7cc63">ComDictAddList</a>(ubNetV, &amp;<a class="code hl_variable" href="com__dict__master_8h.html#a3edb9f181eb5676a77dfd630377b563f">atsComDictMasterTableG</a>[0]);</div>
 <div class="line"> </div>
 <div class="line">   <span class="comment">//---------------------------------------------------------------------------------------------------</span></div>
 <div class="line">   <span class="comment">// Initialize the CANopen Master stack services</span></div>
@@ -156,7 +158,7 @@ $(document).ready(function(){initNavTree('com_example_main.html',''); initResiza
 <div class="line">   <span class="comment">// start the CANopen master stack:</span></div>
 <div class="line">   <span class="comment">// this will issue the boot-up message of the CANopen master</span></div>
 <div class="line">   <span class="comment">//</span></div>
-<div class="line">   <a class="code hl_function" href="com__mgr_8h.html#a0bd227a4dcaabd282225b720d40daa29">ComMgrStart</a>(ubNetV);</div>
+<div class="line">   tvResultT = <a class="code hl_function" href="com__mgr_8h.html#a0bd227a4dcaabd282225b720d40daa29">ComMgrStart</a>(ubNetV);</div>
 <div class="line"> </div>
 <div class="line">   <span class="comment">//---------------------------------------------------------------------------------------------------</span></div>
 <div class="line">   <span class="comment">// start master detection procedure</span></div>
@@ -189,8 +191,8 @@ $(document).ready(function(){initNavTree('com_example_main.html',''); initResiza
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="ttc" id="acanpie_8h_html_a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487"><div class="ttname"><a href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487">eCP_BITRATE_500K</a></div><div class="ttdeci">@ eCP_BITRATE_500K</div><div class="ttdef"><b>Definition</b> canpie.h:677</div></div>
-<div class="ttc" id="acom__defs_8h_html_aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce"><div class="ttname"><a href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a></div><div class="ttdeci">@ eCOM_ERR_NONE</div><div class="ttdef"><b>Definition</b> com_defs.h:171</div></div>
-<div class="ttc" id="acom__defs_8h_html_adb338bd8ca45dd8a183241bf1f19b828"><div class="ttname"><a href="com__defs_8h.html#adb338bd8ca45dd8a183241bf1f19b828">ComStatus_tv</a></div><div class="ttdeci">int32_t ComStatus_tv</div><div class="ttdoc">Function return value.</div><div class="ttdef"><b>Definition</b> com_defs.h:127</div></div>
+<div class="ttc" id="acom__defs_8h_html_aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce"><div class="ttname"><a href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a></div><div class="ttdeci">@ eCOM_ERR_NONE</div><div class="ttdef"><b>Definition</b> com_defs.h:155</div></div>
+<div class="ttc" id="acom__defs_8h_html_adb338bd8ca45dd8a183241bf1f19b828"><div class="ttname"><a href="com__defs_8h.html#adb338bd8ca45dd8a183241bf1f19b828">ComStatus_tv</a></div><div class="ttdeci">int32_t ComStatus_tv</div><div class="ttdef"><b>Definition</b> com_defs.h:116</div></div>
 <div class="ttc" id="acom__demo__app_8h_html_a294e3e82880feb515869d48996dc3424"><div class="ttname"><a href="com__demo__app_8h.html#a294e3e82880feb515869d48996dc3424">ComDemoAppInitServices</a></div><div class="ttdeci">ComStatus_tv ComDemoAppInitServices(uint8_t ubNetV)</div></div>
 <div class="ttc" id="acom__demo__app_8h_html_a611cdcdfab419181f57180192967c29d"><div class="ttname"><a href="com__demo__app_8h.html#a611cdcdfab419181f57180192967c29d">ComDemoAppConsoleError</a></div><div class="ttdeci">void ComDemoAppConsoleError(const char *szMessageV, ComStatus_tv tvStatusV)</div></div>
 <div class="ttc" id="acom__demo__app_8h_html_a884b12ab9f3a56cec184290bf26976ce"><div class="ttname"><a href="com__demo__app_8h.html#a884b12ab9f3a56cec184290bf26976ce">ComDemoAppInitTarget</a></div><div class="ttdeci">ComStatus_tv ComDemoAppInitTarget(uint8_t ubCanIfV, uint8_t ubNetV, ComDemoAppOptions_ts *ptsOptionsV)</div></div>
@@ -235,7 +237,7 @@ $(document).ready(function(){initNavTree('com_example_main.html',''); initResiza
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>

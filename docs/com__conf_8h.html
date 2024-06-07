@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -386,7 +386,7 @@ Macros</h2></td></tr>
 <div class="line"><a class="code hl_function" href="com__mgr_8h.html#a8c3583df39485235b950cd82158eba38">ComMgrInit</a>(<a class="code hl_enumvalue" href="canpie_8h.html#a364ad643291389f2be3c52e7e0d5f0bfa6339424fe05aa422027f98daa81a5cce">eCP_CHANNEL_1</a>, <a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, <a class="code hl_enumvalue" href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487">eCP_BITRATE_500K</a>, 1, <a class="code hl_enumvalue" href="com__mgr_8h.html#a01e454f2ec6a3cf2f6661b7e211e6e53a5155337b765153b92f59a068dcb6ec62">eCOM_MODE_NMT_MASTER</a> | <a class="code hl_enumvalue" href="com__mgr_8h.html#a01e454f2ec6a3cf2f6661b7e211e6e53a72f7b6d1984c8c8170b85bd7cc825fca">eCOM_MODE_FD</a>);</div>
 <div class="ttc" id="acanpie_8h_html_a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487"><div class="ttname"><a href="canpie_8h.html#a1701ab116f6fb6d511dfc34e5115de2ba76f1cb913600045e3dcc80455fc21487">eCP_BITRATE_500K</a></div><div class="ttdeci">@ eCP_BITRATE_500K</div><div class="ttdef"><b>Definition</b> canpie.h:677</div></div>
 <div class="ttc" id="acanpie_8h_html_a364ad643291389f2be3c52e7e0d5f0bfa6339424fe05aa422027f98daa81a5cce"><div class="ttname"><a href="canpie_8h.html#a364ad643291389f2be3c52e7e0d5f0bfa6339424fe05aa422027f98daa81a5cce">eCP_CHANNEL_1</a></div><div class="ttdeci">@ eCP_CHANNEL_1</div><div class="ttdef"><b>Definition</b> canpie.h:732</div></div>
-<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:746</div></div>
+<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:723</div></div>
 <div class="ttc" id="acom__mgr_8h_html_a01e454f2ec6a3cf2f6661b7e211e6e53a5155337b765153b92f59a068dcb6ec62"><div class="ttname"><a href="com__mgr_8h.html#a01e454f2ec6a3cf2f6661b7e211e6e53a5155337b765153b92f59a068dcb6ec62">eCOM_MODE_NMT_MASTER</a></div><div class="ttdeci">@ eCOM_MODE_NMT_MASTER</div><div class="ttdef"><b>Definition</b> com_mgr.h:94</div></div>
 <div class="ttc" id="acom__mgr_8h_html_a01e454f2ec6a3cf2f6661b7e211e6e53a72f7b6d1984c8c8170b85bd7cc825fca"><div class="ttname"><a href="com__mgr_8h.html#a01e454f2ec6a3cf2f6661b7e211e6e53a72f7b6d1984c8c8170b85bd7cc825fca">eCOM_MODE_FD</a></div><div class="ttdeci">@ eCOM_MODE_FD</div><div class="ttdef"><b>Definition</b> com_mgr.h:118</div></div>
 <div class="ttc" id="acom__mgr_8h_html_a8c3583df39485235b950cd82158eba38"><div class="ttname"><a href="com__mgr_8h.html#a8c3583df39485235b950cd82158eba38">ComMgrInit</a></div><div class="ttdeci">ComStatus_tv ComMgrInit(uint8_t ubCanIfV, uint8_t ubNetV, uint8_t ubBitrateNomSelV, uint8_t ubNodeIdV, uint32_t ulModeV)</div></div>
@@ -481,7 +481,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This symbol defines the maximum number of CANopen FD Master networks in a system. The value is typically equal to the number of physical CAN interfaces. </p>
+<p>This symbol defines the maximum number of CANopen FD Master networks in a system. The value is typically equal to the number of physical CAN interfaces. The maximum number of logical CANopen networks is limited to 8. </p>
 
 </div>
 </div>
@@ -854,7 +854,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_059b8d327d09617c411023af730a36c0.html">application</a></li><li class="navelem"><a class="el" href="dir_7c265ba478e532ccbde4ebc3a9045919.html">template-com</a></li><li class="navelem"><a class="el" href="com__conf_8h.html">com_conf.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>

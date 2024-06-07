@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('com__defs_8h.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The file <a class="el" href="com__defs_8h.html" title="CANopen Master definitions .">com_defs.h</a> holds global definitions, constants and structures for the CANopen Master. The files '<a class="el" href="canopen_8h.html" title="General CANopen definitions .">canopen.h</a>' and '<a class="el" href="com__conf_8h.html" title="CANopen Master stack configuration .">com_conf.h</a>' are included by this header. </p>
+<div class="textblock"><p>The file <a class="el" href="com__defs_8h.html" title="CANopen Master definitions .">com_defs.h</a> holds global definitions, constants and structures for the CANopen Master protocol stack. The files '<a class="el" href="canopen_8h.html" title="General CANopen definitions .">canopen.h</a>' and '<a class="el" href="com__conf_8h.html" title="CANopen Master stack configuration .">com_conf.h</a>' are included by this header. </p>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for com_defs.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -153,9 +153,9 @@ $(document).ready(function(){initNavTree('com__defs_8h.html',''); initResizable(
 Macros</h2></td></tr>
 <tr class="memitem:ga065e27a7922c1cd04040f39750bc86d4" id="r_ga065e27a7922c1cd04040f39750bc86d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COM__VERSION.html#ga065e27a7922c1cd04040f39750bc86d4">COM_VERSION_MAJOR</a>&#160;&#160;&#160;6</td></tr>
 <tr class="separator:ga065e27a7922c1cd04040f39750bc86d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d6501d7a3d145c629db93a2dab4f365" id="r_ga5d6501d7a3d145c629db93a2dab4f365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COM__VERSION.html#ga5d6501d7a3d145c629db93a2dab4f365">COM_VERSION_MINOR</a>&#160;&#160;&#160;07</td></tr>
+<tr class="memitem:ga5d6501d7a3d145c629db93a2dab4f365" id="r_ga5d6501d7a3d145c629db93a2dab4f365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COM__VERSION.html#ga5d6501d7a3d145c629db93a2dab4f365">COM_VERSION_MINOR</a>&#160;&#160;&#160;06</td></tr>
 <tr class="separator:ga5d6501d7a3d145c629db93a2dab4f365"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2891eec05f6d10f8ed51624f46486d1c" id="r_ga2891eec05f6d10f8ed51624f46486d1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COM__VERSION.html#ga2891eec05f6d10f8ed51624f46486d1c">COM_VERSION_BUILD</a>&#160;&#160;&#160;00</td></tr>
+<tr class="memitem:ga2891eec05f6d10f8ed51624f46486d1c" id="r_ga2891eec05f6d10f8ed51624f46486d1c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COM__VERSION.html#ga2891eec05f6d10f8ed51624f46486d1c">COM_VERSION_BUILD</a>&#160;&#160;&#160;04</td></tr>
 <tr class="separator:ga2891eec05f6d10f8ed51624f46486d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1ec911bfe5040593d667b253dbfb81" id="r_aea1ec911bfe5040593d667b253dbfb81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="com__defs_8h.html#aea1ec911bfe5040593d667b253dbfb81">ComNetValid</a>(a)&#160;&#160;&#160;( (a &gt;= <a class="el" href="com__conf_8h.html#af817cf6da870d9af8a965a363de4dd89">COM_NET_MAX</a>) ? <a class="el" href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a04f70a8c06c2c3e1d3974f46478d5951">eCOM_ERR_NET_VALUE</a> : <a class="el" href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a>)</td></tr>
 <tr class="separator:aea1ec911bfe5040593d667b253dbfb81"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -340,6 +340,25 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a9ce62d5b229630f05554161d712bcfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fcbaaae42ba2be384e65200b4eb98be" id="r_a9fcbaaae42ba2be384e65200b4eb98be"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98be">ComNet_e</a> { <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea4528cf57e73b2f66b0f72fe3529a7f10">eCOM_NET_2</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea68bc839119c3551cdfebf8d5fdcfdd28">eCOM_NET_3</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea2552c09ce446cbc33b473cd8c18fd462">eCOM_NET_4</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea0bd9e0fe49908c7bc5fb1645bad4423d">eCOM_NET_5</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf60d707777574e76aeddeae642d2385b">eCOM_NET_6</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea2c4932c88dbe48df27fe1b8f14902f74">eCOM_NET_7</a>
+, <br />
+&#160;&#160;<a class="el" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea24b2ec94ce5e1ba1accc12eecbb2a407">eCOM_NET_8</a>
+<br />
+ }</td></tr>
+<tr class="separator:a9fcbaaae42ba2be384e65200b4eb98be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aea1ec911bfe5040593d667b253dbfb81" name="aea1ec911bfe5040593d667b253dbfb81"></a>
@@ -375,9 +394,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Function return value. </p>
-<p>The following codes are used by functions, which used callback funcitons for object dictionary access by Service Data Objects. A value of ComSdoStatus_tv, defined by the enumeration <a class="el" href="com__defs_8h.html#a9ce62d5b229630f05554161d712bcfa1" title="Return code for SDO callbacks.">ComSdo_e</a>. </p>
+<p>Callback handler used by the object dictionary (see <code>ComSdoHandler_Fn</code>) return a value of type <code>ComSdoStatus_tv</code>, which is defined as data type <code>uint8_t</code> by default. </p>
 
 </div>
 </div>
@@ -392,9 +409,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Function return value. </p>
-<p>All functions of the CANopen Master Protocol Stack have a generic return value, which is defined as int32_t by default. A negative value of ComStatus_tv denotes an error, defined by the enumeration <a class="el" href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250" title="Error Codes of CANopen Master protocol stack.">ComErr_e</a>. </p>
+<p>All functions of the CANopen Master Protocol Stack have a generic return value, which is defined as data type <code>int32_t</code> by default. A negative value of <code>ComStatus_tv</code> denotes an error, defined by the enumeration <a class="el" href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250" title="Error Codes of CANopen Master protocol stack.">ComErr_e</a>. </p>
 
 </div>
 </div>
@@ -490,8 +505,8 @@ Enumerations</h2></td></tr>
 <div class="line">{</div>
 <div class="line">   <span class="comment">// handle error here</span></div>
 <div class="line">}</div>
-<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98bea68bc839119c3551cdfebf8d5fdcfdd28"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea68bc839119c3551cdfebf8d5fdcfdd28">eCOM_NET_3</a></div><div class="ttdeci">@ eCOM_NET_3</div><div class="ttdef"><b>Definition</b> com_defs.h:752</div></div>
-<div class="ttc" id="acom__defs_8h_html_aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce"><div class="ttname"><a href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a></div><div class="ttdeci">@ eCOM_ERR_NONE</div><div class="ttdef"><b>Definition</b> com_defs.h:171</div></div>
+<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98bea68bc839119c3551cdfebf8d5fdcfdd28"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98bea68bc839119c3551cdfebf8d5fdcfdd28">eCOM_NET_3</a></div><div class="ttdeci">@ eCOM_NET_3</div><div class="ttdef"><b>Definition</b> com_defs.h:729</div></div>
+<div class="ttc" id="acom__defs_8h_html_aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce"><div class="ttname"><a href="com__defs_8h.html#aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce">eCOM_ERR_NONE</a></div><div class="ttdeci">@ eCOM_ERR_NONE</div><div class="ttdef"><b>Definition</b> com_defs.h:155</div></div>
 <div class="ttc" id="acom__mgr_8h_html_a0bd227a4dcaabd282225b720d40daa29"><div class="ttname"><a href="com__mgr_8h.html#a0bd227a4dcaabd282225b720d40daa29">ComMgrStart</a></div><div class="ttdeci">ComStatus_tv ComMgrStart(uint8_t ubNetV)</div><div class="ttdoc">Start the CANopen Master.</div></div>
 </div><!-- fragment --> <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce" name="aaf1a63ace6e9731aa0401042a518f250a69d740353de5bbc295ae32ffbd14c9ce"></a>eCOM_ERR_NONE&#160;</td><td class="fielddoc"><p>No error <br  />
@@ -559,8 +574,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Network channel definition. </p>
+<p>This enumeration defines logical network numbers for the CANopen Master protocol stack. The logical network number is assigned to a physical CAN interface by means of the <a class="el" href="com__mgr_8h.html#a8c3583df39485235b950cd82158eba38">ComMgrInit()</a> function. Please note that the maximum value that can be used from this enumeration is limited by the configuration symbol <a class="el" href="com__conf_8h.html#af817cf6da870d9af8a965a363de4dd89">COM_NET_MAX</a>. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a" name="a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"></a>eCOM_NET_1&#160;</td><td class="fielddoc"><p>CANopen Master network #1 <br  />
  </p>
@@ -572,6 +586,18 @@ Enumerations</h2></td></tr>
  </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98bea2552c09ce446cbc33b473cd8c18fd462" name="a9fcbaaae42ba2be384e65200b4eb98bea2552c09ce446cbc33b473cd8c18fd462"></a>eCOM_NET_4&#160;</td><td class="fielddoc"><p>CANopen Master network #4 <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98bea0bd9e0fe49908c7bc5fb1645bad4423d" name="a9fcbaaae42ba2be384e65200b4eb98bea0bd9e0fe49908c7bc5fb1645bad4423d"></a>eCOM_NET_5&#160;</td><td class="fielddoc"><p>CANopen Master network #5 <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98beaf60d707777574e76aeddeae642d2385b" name="a9fcbaaae42ba2be384e65200b4eb98beaf60d707777574e76aeddeae642d2385b"></a>eCOM_NET_6&#160;</td><td class="fielddoc"><p>CANopen Master network #6 <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98bea2c4932c88dbe48df27fe1b8f14902f74" name="a9fcbaaae42ba2be384e65200b4eb98bea2c4932c88dbe48df27fe1b8f14902f74"></a>eCOM_NET_7&#160;</td><td class="fielddoc"><p>CANopen Master network #7 <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9fcbaaae42ba2be384e65200b4eb98bea24b2ec94ce5e1ba1accc12eecbb2a407" name="a9fcbaaae42ba2be384e65200b4eb98bea24b2ec94ce5e1ba1accc12eecbb2a407"></a>eCOM_NET_8&#160;</td><td class="fielddoc"><p>CANopen Master network #8 <br  />
  </p>
 </td></tr>
 </table>
@@ -678,7 +704,7 @@ Enumerations</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="com__defs_8h.html">com_defs.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>

@@ -42,7 +42,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectbrief">CANopen Master Documentation</div>
-   <div id="projectnumber">Version 6.06.02</div>
+   <div id="projectnumber">Version 6.06.04</div>
   </td>
  </tr>
  </tbody>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('com__emcy_8h.html',''); initResizable(
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><a class="code hl_function" href="com__emcy_8h.html#a5599ac8a052e74024afa1b329eb71450">ComEmcyConsEnable</a>(<a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, 1, 1);</div>
 <div class="line"><a class="code hl_function" href="com__emcy_8h.html#a5599ac8a052e74024afa1b329eb71450">ComEmcyConsEnable</a>(<a class="code hl_enumvalue" href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a>, 3, 1);</div>
-<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:746</div></div>
+<div class="ttc" id="acom__defs_8h_html_a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a"><div class="ttname"><a href="com__defs_8h.html#a9fcbaaae42ba2be384e65200b4eb98beaf76f82dfac87612621bd4bb5a7585d8a">eCOM_NET_1</a></div><div class="ttdeci">@ eCOM_NET_1</div><div class="ttdef"><b>Definition</b> com_defs.h:723</div></div>
 <div class="ttc" id="acom__emcy_8h_html_a5599ac8a052e74024afa1b329eb71450"><div class="ttname"><a href="com__emcy_8h.html#a5599ac8a052e74024afa1b329eb71450">ComEmcyConsEnable</a></div><div class="ttdeci">ComStatus_tv ComEmcyConsEnable(uint8_t ubNetV, uint8_t ubNodeIdV, uint8_t ubEnableV)</div></div>
 </div><!-- fragment --><p> Upon reception of an enabled EMCY message the function <a class="el" href="com__emcy_8h.html#aa175428aad7d691fa5b2c76b25d8b769">ComEmcyConsEventReceive()</a> is called., which only informs about the node-ID of the EMCY producer. </p>
 <p>EMCY messages can be stored in a queue, the queue is disabled by default. The function <a class="el" href="com__emcy_8h.html#ad264137aec438052fb6495eebe6d2984">ComEmcyConsQueueEnable()</a> is used to enable a queue for EMCY messages. By means of the function <a class="el" href="com__emcy_8h.html#a3fde376d32e510683fdbf015463bc041">ComEmcyConsQueueCount()</a> the number of messages stored inside the queue can be retrieved. EMCY messages can be fetched from the queue by calling <a class="el" href="com__emcy_8h.html#a81b00d5274307672859e90ab66b4596a">ComEmcyConsQueueFetch()</a>. The following example shows how to read the EMCY queue inside the <a class="el" href="com__emcy_8h.html#aa175428aad7d691fa5b2c76b25d8b769">ComEmcyConsEventReceive()</a> handler. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="com__emcy_8h.html#aa175428aad7d691fa5b2c76b25d8b769">ComEmcyConsEventReceive</a>(uint8_t ubNetV, uint8_t ubNodeIdV)</div>
@@ -949,7 +949,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li><li class="navelem"><a class="el" href="dir_fbdabf5ce8d53acfd7d4189bc668e32b.html">stack-com</a></li><li class="navelem"><a class="el" href="com__emcy_8h.html">com_emcy.h</a></li>
-    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Thu Jan 4 2024 </li>
+    <li class="footer"><a href="https://www.microcontrol.net">&copy; MicroControl GmbH &amp; Co. KG</a> Fri Jun 7 2024 </li>
   </ul>
 </div>
 </body>
