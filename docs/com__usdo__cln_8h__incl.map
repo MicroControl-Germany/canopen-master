@@ -8,7 +8,7 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="147,181,86,220,83,215,145,177"/>
 <area shape="rect" id="Node000011" href="$cp__msg_8h.html" title="CANpie message access" alt="" coords="101,300,179,326"/>
 <area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="166,179,147,285,142,284,160,178"/>
-<area shape="rect" id="Node000012" href="$canopen_8h.html" title="General CANopen definitions ." alt="" coords="203,300,284,326"/>
+<area shape="rect" id="Node000012" href="$canopen_8h.html" title=" " alt="" coords="203,300,284,326"/>
 <area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="174,177,232,285,228,288,169,180"/>
 <area shape="rect" id="Node000013" href="$com__conf_8h.html" title="CANopen Master stack configuration ." alt="" coords="228,226,318,252"/>
 <area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="185,177,243,215,240,220,182,181"/>

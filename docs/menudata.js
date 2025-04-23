@@ -31,10 +31,11 @@ var menudata={children:[
 {text:"Initialization",url:"com_example_start.html"},
 {text:"PDO communication",url:"com_example_pdo_howto.html"},
 {text:"SDO / USDO communication",url:"com_example_sdo_howto.html"},
-{text:"EVAL boards",url:"com_examples_boards.html",children:[
+{text:"EVAL boards",url:"com_examples.html#com_examples_boards",children:[
 {text:"STM32G474E-EVAL board",url:"com_ex_board_STM32G474E_EVAL.html"},
 {text:"STM32H735G-DK board",url:"com_ex_board_STM32H735G_DK.html"},
 {text:"STM32U575-EV board",url:"com_ex_board_STM32U575I_EV.html"}]}]},
+{text:"Building a library",url:"com_library.html"},
 {text:"Template Files",url:"com_api_templates.html",children:[
 {text:"Stack configuration",url:"com__conf_8h.html#COM_CONF"},
 {text:"Demo application",url:"com_example_main.html"},

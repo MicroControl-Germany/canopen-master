@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['hardware_20abstraction_20layer_0',['Hardware Abstraction Layer',['../com_api_hal.html',1,'']]],
-  ['history_1',['Version History',['../com_version.html',1,'']]],
-  ['history_20for_20major_205_20releases_2',['Version History for major 5 releases',['../com_version_5.html',1,'']]]
+  ['general_0',['general',['../library_2build_2CMakeCache_8txt.html#ad797829e3284fd15f2780269ce9bb6dc',1,'CMakeCache.txt']]],
+  ['getting_20started_1',['Getting started',['../com_getting_started.html',1,'']]]
 ];

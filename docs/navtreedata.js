@@ -32,12 +32,13 @@ var NAVTREE =
         [ "Initialization", "com_example_start.html", null ],
         [ "PDO communication", "com_example_pdo_howto.html", null ],
         [ "SDO / USDO communication", "com_example_sdo_howto.html", null ],
-        [ "EVAL boards", "com_examples_boards.html", [
+        [ "EVAL boards", "com_examples.html#com_examples_boards", [
           [ "STM32G474E-EVAL board", "com_ex_board_STM32G474E_EVAL.html", null ],
           [ "STM32H735G-DK board", "com_ex_board_STM32H735G_DK.html", null ],
           [ "STM32U575-EV board", "com_ex_board_STM32U575I_EV.html", null ]
         ] ]
       ] ],
+      [ "Building a library", "com_library.html", null ],
       [ "Template Files", "com_api_templates.html", [
         [ "Stack configuration", "com__conf_8h.html#COM_CONF", null ],
         [ "Demo application", "com_example_main.html", null ],

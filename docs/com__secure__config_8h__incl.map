@@ -1,0 +1,33 @@
+<map id="com_secure_config.h" name="com_secure_config.h">
+<area shape="rect" id="Node000001" title="CANopen Master Stack &#45; Secure Configuration ." alt="" coords="92,5,238,31"/>
+<area shape="rect" id="Node000002" href="$com__sdo__cln_8h.html" title="CANopen Master SDO client ." alt="" coords="110,79,220,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,31,168,63,162,63,162,31"/>
+<area shape="rect" id="Node000003" href="$com__object_8h.html" title="CANopen Master object definitions ." alt="" coords="115,153,215,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="168,105,168,137,162,137,162,105"/>
+<area shape="rect" id="Node000004" href="$com__defs_8h.html" title="CANopen Master definitions ." alt="" coords="120,226,210,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="168,179,168,211,162,211,162,179"/>
+<area shape="rect" id="Node000005" href="$cp__core_8h.html" title="CANpie core functions ." alt="" coords="14,300,92,326"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="147,255,86,294,83,289,145,250"/>
+<area shape="rect" id="Node000013" href="$cp__msg_8h.html" title="CANpie message access" alt="" coords="101,374,179,399"/>
+<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="166,253,147,359,142,358,160,252"/>
+<area shape="rect" id="Node000014" href="$canopen_8h.html" title=" " alt="" coords="203,374,284,399"/>
+<area shape="poly" id="edge14_Node000004_Node000014" title=" " alt="" coords="174,251,232,359,228,361,169,254"/>
+<area shape="rect" id="Node000015" href="$com__conf_8h.html" title="CANopen Master stack configuration ." alt="" coords="228,300,318,326"/>
+<area shape="poly" id="edge16_Node000004_Node000015" title=" " alt="" coords="185,250,243,289,240,293,182,255"/>
+<area shape="rect" id="Node000006" href="$cp__fifo_8h.html" title="CANpie FIFO functions ." alt="" coords="5,374,77,399"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="54,326,48,359,43,358,48,325"/>
+<area shape="rect" id="Node000007" href="$canpie_8h.html" title="CANpie constants, structures and enumerations" alt="" coords="93,447,163,473"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="57,398,103,435,100,439,54,402"/>
+<area shape="rect" id="Node000008" href="$mc__compiler_8h.html" title="Definition of compiler independent data types ." alt="" coords="191,521,296,547"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="149,471,213,510,210,515,146,476"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="67,521,167,547"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="129,474,124,506,118,505,123,473"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="51,595,183,620"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="223,550,153,589,150,584,221,545"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="207,595,281,620"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="246,547,246,579,241,579,241,547"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="305,595,369,620"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="261,545,311,583,308,587,258,549"/>
+<area shape="poly" id="edge13_Node000013_Node000007" title=" " alt="" coords="140,400,135,432,130,431,135,399"/>
+<area shape="poly" id="edge15_Node000014_Node000008" title=" " alt="" coords="246,400,246,506,241,506,241,400"/>
+</map>

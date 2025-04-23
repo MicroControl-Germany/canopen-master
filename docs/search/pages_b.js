@@ -4,7 +4,8 @@ var searchData=
   ['master_20add_20on_20modules_1',['CANopen Master Add-on modules',['../com_add_on_overview.html',1,'']]],
   ['master_20api_20overview_2',['CANopen Master API overview',['../com_api_overview.html',1,'']]],
   ['master_20deprecated_20function_3',['CANopen Master deprecated function',['../com_api_deprecated.html',1,'']]],
-  ['master_20protocol_20stack_4',['CANopen Master Protocol Stack',['../index.html',1,'']]],
-  ['master_20templates_5',['CANopen Master Templates',['../com_api_templates.html',1,'']]],
-  ['modules_6',['CANopen Master Add-on modules',['../com_add_on_overview.html',1,'']]]
+  ['master_20library_4',['CANopen Master Library',['../com_library.html',1,'']]],
+  ['master_20protocol_20stack_5',['CANopen Master Protocol Stack',['../index.html',1,'']]],
+  ['master_20templates_6',['CANopen Master Templates',['../com_api_templates.html',1,'']]],
+  ['modules_7',['CANopen Master Add-on modules',['../com_add_on_overview.html',1,'']]]
 ];
